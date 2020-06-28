@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/mega-hack-3/precache-manifest.6dc09bc3e40945ffa2652dc900419fb8.js"
+  "/mega-hack-3/precache-manifest.474d4e7a16115a6268dd849340de9eb9.js"
 );
 
 self.addEventListener('message', (event) => {
