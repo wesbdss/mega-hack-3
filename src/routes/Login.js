@@ -13,6 +13,7 @@ export default class Login extends Component {
     <input type="password" name="" id="" />
                 </label>
                 <button type="submit">Login</button>
+                <a href="/animation"></a>
             </form>
         );
     }

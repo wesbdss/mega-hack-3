@@ -15,10 +15,10 @@ function App() {
       <div className="App">
         <header className="App-header">
           <Switch>
-            <Route path="/animation">
+            <Route path="/">
               <Animation />
             </Route>
-            <Route path="/">
+            <Route path="/login">
               <Login />
             </Route>
           </Switch>
