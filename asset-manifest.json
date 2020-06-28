@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/mega-hack-3/static/css/main.3f7233a2.chunk.css",
-    "main.js": "/mega-hack-3/static/js/main.4c1e7ffc.chunk.js",
-    "main.js.map": "/mega-hack-3/static/js/main.4c1e7ffc.chunk.js.map",
+    "main.js": "/mega-hack-3/static/js/main.003d7303.chunk.js",
+    "main.js.map": "/mega-hack-3/static/js/main.003d7303.chunk.js.map",
     "runtime-main.js": "/mega-hack-3/static/js/runtime-main.3b672b39.js",
     "runtime-main.js.map": "/mega-hack-3/static/js/runtime-main.3b672b39.js.map",
     "static/css/2.af3c1da9.chunk.css": "/mega-hack-3/static/css/2.af3c1da9.chunk.css",
     "static/js/2.d8c6bfb8.chunk.js": "/mega-hack-3/static/js/2.d8c6bfb8.chunk.js",
     "static/js/2.d8c6bfb8.chunk.js.map": "/mega-hack-3/static/js/2.d8c6bfb8.chunk.js.map",
     "index.html": "/mega-hack-3/index.html",
-    "precache-manifest.e9efb12c994e607965ef0cbbc5a46252.js": "/mega-hack-3/precache-manifest.e9efb12c994e607965ef0cbbc5a46252.js",
+    "precache-manifest.9be67729bea029ec58478540bb083e97.js": "/mega-hack-3/precache-manifest.9be67729bea029ec58478540bb083e97.js",
     "service-worker.js": "/mega-hack-3/service-worker.js",
     "static/css/2.af3c1da9.chunk.css.map": "/mega-hack-3/static/css/2.af3c1da9.chunk.css.map",
     "static/css/main.3f7233a2.chunk.css.map": "/mega-hack-3/static/css/main.3f7233a2.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.af3c1da9.chunk.css",
     "static/js/2.d8c6bfb8.chunk.js",
     "static/css/main.3f7233a2.chunk.css",
-    "static/js/main.4c1e7ffc.chunk.js"
+    "static/js/main.003d7303.chunk.js"
   ]
 }
