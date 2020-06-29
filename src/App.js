@@ -21,7 +21,10 @@ export default class App extends React.Component {
         <div className="App">
           <header className="App-header">
             <Switch>
-            <Route path="/mega-hack-3/anima">
+              <Route path="/mega-hack-3/">
+                <Homepage />
+              </Route>
+              <Route path="/mega-hack-3/anima">
                 <Animation />
               </Route>
               <Route path="/mega-hack-3/login">

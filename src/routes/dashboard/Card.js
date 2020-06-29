@@ -10,41 +10,35 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
     root: {
-      maxWidth: 345,
+        maxWidth: 150,
     },
-  });
-  
-  export default function ImgMediaCard() {
+});
+
+export default function Cards(props) {
     const classes = useStyles();
-  
+
+    const change = (e) => {
+        alert(e.target.classList.add('MuiCardMedia-root'));
+    }
     return (
-      <Card className={classes.root}>
-        <CardActionArea>
-          <CardMedia
-            component="img"
-            alt="Contemplative Reptile"
-            height="140"
-            image="/static/images/cards/contemplative-reptile.jpg"
-            title="Contemplative Reptile"
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
-              Lizard
+        <Card className={classes.root} onClick={change}>
+            <CardActionArea>
+                <CardMedia
+                    component="img"
+                    alt="Loli Comunista"
+                    height="100px"
+                    image={props.image}
+                    title="Contemplative Reptile"
+                />
+                <CardContent>
+                    <Typography gutterBottom variant="h6" component="h4">
+                        {props.name}
             </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-              Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-              across all continents except Antarctica
+                    <Typography variant="body2" color="textSecondary" component="p">
+                        Autor: {props.autor} <br/> {props.genero}
             </Typography>
-          </CardContent>
-        </CardActionArea>
-        <CardActions>
-          <Button size="small" color="primary">
-            Share
-          </Button>
-          <Button size="small" color="primary">
-            Learn More
-          </Button>
-        </CardActions>
-      </Card>
+                </CardContent>
+            </CardActionArea>
+        </Card>
     );
-  }
+}

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import clsx from 'clsx';
+import Grid from '@material-ui/core/Grid'
+import Paper from '@material-ui/core/Paper'
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
@@ -29,6 +31,8 @@ import ImportContactsIcon from '@material-ui/icons/ImportContacts';
 import FormControl from '@material-ui/core/FormControl';
 import InputAdornment from '@material-ui/core/InputAdornment'
 import OutlinedInput from '@material-ui/core/OutlinedInput'
+import Card from './dashboard/Card.js';
+
 // import Chart from './Chart';
 // import Deposits from './Deposits';
 // import Orders from './Orders';
@@ -111,10 +115,13 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     height: '100vh',
     overflow: 'auto',
+    width: '100%',
+    wordWrap: "nowrap",
   },
   container: {
     paddingTop: theme.spacing(4),
     paddingBottom: theme.spacing(4),
+    overflow: "auto",
   },
   paper: {
     padding: theme.spacing(2),
@@ -129,13 +136,13 @@ const useStyles = makeStyles((theme) => ({
     height: '10vh',
     width: '10vh',
     border: "20px",
-
+    marginTop: '20px',
     borderColor: "black",
   },
   localavatar: {
     display: 'flex',
     justifyContent: 'center',
-    alignItems:'center'
+    alignItems: 'center'
 
   },
   topMenuSelect: {
@@ -144,12 +151,12 @@ const useStyles = makeStyles((theme) => ({
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
 
-  },name: {
-    display:"flex",
-    textAlign:"center"
-
-  }
-}));
+  }, name: {
+    display: "flex",
+    textAlign: "center"
+  },
+}
+));
 
 
 export default function Dashboard(props) {
@@ -159,20 +166,20 @@ export default function Dashboard(props) {
       var a = window.location.href.split('/dashboard/');
       a = a[1].split('/');
       var nm = a[1].replace(/(%20)+/g, ' ');
-    return { email: a[0], name: nm, id: a[2] }
+      return { email: a[0], name: nm, id: a[2] }
     } catch (error) {
       return { email: 'null', name: 'null', id: 'null' }
     }
-      
+
   }
   const classes = useStyles();
   const [data, setState] = useState(separaUrl);
 
-  
+
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
     setOpen(true);
-    
+
   };
   const handleDrawerClose = () => {
     setOpen(false);
@@ -182,7 +189,7 @@ export default function Dashboard(props) {
 
 
   const click = (e) => {
-    alert(e.target)
+    alert(e.target.alt)
   }
 
   return (
@@ -190,7 +197,7 @@ export default function Dashboard(props) {
       <CssBaseline />
       <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
         <Toolbar className={classes.toolbar}>
-          
+
           <IconButton
             edge="start"
             color="inherit"
@@ -230,14 +237,14 @@ export default function Dashboard(props) {
       >
         <div className={classes.topMenuSelect}>
           <div className={classes.toolbarIcon}>
-          <h4 className={classes.name}>{data.name.split(' ')[0]}</h4>
+            <h4 className={classes.name}>{data.name.split(' ')[0]}</h4>
             <IconButton onClick={handleDrawerClose}>
               <ChevronLeftIcon />
             </IconButton>
           </div>
           <div className={classes.localavatar}>
             <Avatar onClick={click} className={classes.avatar} alt="Loli Dançante" src="https://media.tenor.com/images/74a2b4b0fc38bc87c81f68b0bb24572d/tenor.gif" />
-           
+
           </div>
 
         </div>
@@ -290,15 +297,51 @@ export default function Dashboard(props) {
 
         {/* Onde a gente coloca cards etc */}
         <Container maxWidth="lg" className={classes.container}>
-          {/* <Grid container spacing={3}>
-            
-            <Grid item xs={12} md={8} lg={9}>
-              <Paper className={fixedHeightPaper}>
-                <Chart />
+          <h1>Título</h1>
+          <Grid container
+            direction="row"
+            justify="center"
+            alignItems="baseline"
+            spacing={2}
+          >
+
+            <Grid item xs={7} md={3} lg={9} >
+              <Paper className={fixedHeightPaper} onClick={click}>
+                <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
               </Paper>
             </Grid>
-            
-            <Grid item xs={12} md={4} lg={3}>
+            <Grid item xs={7} md={3} lg={9} >
+              <Paper className={fixedHeightPaper} onClick={click}>
+                <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
+              </Paper>
+            </Grid>
+            <Grid item xs={7} md={3} lg={9} >
+              <Paper className={fixedHeightPaper} onClick={click}>
+                <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
+              </Paper>
+            </Grid>
+            <Grid item xs={7} md={3} lg={9} >
+              <Paper className={fixedHeightPaper} onClick={click}>
+                <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
+              </Paper>
+            </Grid>
+            <Grid item xs={7} md={3} lg={9} >
+              <Paper className={fixedHeightPaper} onClick={click}>
+                <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
+              </Paper>
+            </Grid>
+            <Grid item xs={7} md={3} lg={9} >
+              <Paper className={fixedHeightPaper} onClick={click}>
+                <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
+              </Paper>
+            </Grid>
+            <Grid item xs={7} md={3} lg={9} >
+              <Paper className={fixedHeightPaper} onClick={click}>
+                <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
+              </Paper>
+            </Grid>
+
+            {/* <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}>
                 <Deposits />
               </Paper>
@@ -308,8 +351,9 @@ export default function Dashboard(props) {
               <Paper className={classes.paper}>
                 <Orders />
               </Paper>
-            </Grid>
-          </Grid> */}
+            </Grid> */}
+          </Grid>
+
           <Box pt={4}>
             <Copyright />
           </Box>
