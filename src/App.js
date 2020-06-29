@@ -21,9 +21,7 @@ export default class App extends React.Component {
         <div className="App">
           <header className="App-header">
             <Switch>
-              <Route path="/mega-hack-3/">
-                <Homepage />
-              </Route>
+            
               <Route path="/mega-hack-3/anima">
                 <Animation />
               </Route>
@@ -45,9 +43,13 @@ export default class App extends React.Component {
               <Route path='/mega-hack-3/(:email)/(:name)/(:id)'>
                 <Homepage />
               </Route>
+              <Route path="/mega-hack-3/">
+                <Homepage />
+              </Route>
               <Route path='/'>
                 <Erro />
               </Route>
+              
 
             </Switch>
           </header>
