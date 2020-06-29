@@ -34,7 +34,7 @@ const scenes = {
             
 
             const geometry = new THREE.PlaneGeometry(.5, .5);
-            const material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('/loliWisky.jpg') });
+            const material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('/mega-hack-3/loliWisky.jpg') });
 
             // generate some boxes in a column
 

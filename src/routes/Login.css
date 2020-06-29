@@ -1,0 +1,50 @@
+body{
+    width: 100%;
+    font-family: Arial, Tahoma, sans-serif;
+}
+
+
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+.meio{
+    justify-content: center;
+    margin-top: 30vh;
+}
+
+.top{
+    background-image: url("https://3.bp.blogspot.com/-ih6FN-YhjB4/UjCwiByScKI/AAAAAAAAeG4/bW6vUJx3aQ0/s1600/2.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:bottom;
+    position: fixed;
+    left: 0;
+    background-color: red;
+    height: 50%;
+    width: 100%;
+    
+}
+.bottom{
+    background-color: rgb(73, 73, 73);
+    position: fixed;
+    bottom:0;
+    left:0;
+    height: 50%;
+    width: 100%;
+    opacity: 70%;
+    z-index: -1;
+}
+
+.letra{
+    margin-top: 8vh;
+    font-size: 4em;
+    color: rgb(30, 131, 214);
+    text-shadow: 6px 6px #000000;
+    border: 10px rgb(73, 73, 73);
+    font-family: "Lucida Console", Monaco, monospace;
+}
+.alerta{
+    padding: 30%;
+}
