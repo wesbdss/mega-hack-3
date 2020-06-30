@@ -32,24 +32,26 @@ export default class Login extends Component {
 
     handleSubmit(e) {
 
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email: this.state.email, password: this.state.password })
-        }
+        // const requestOptions = {
+        //     method: 'POST',
+        //     headers: { 'Content-Type': 'application/json' },
+        //     body: JSON.stringify({ email: this.state.email, password: this.state.password })
+        // }
         console.log(this.state.email,this.state.password);
-        fetch('https://servercards.herokuapp.com/user-api/login', requestOptions)
-            .then(response => response.json())
-            .then(data => {
-                console.log("Do server",data.email,data.password)
-                if (this.state.email === data.email && this.state.password === data.password) {
-                    // alert(window.location.href.replace('login','menu'));
-                    window.location.href = window.location.href.replace('/login', '/dashboard') + "/" + data.email + "/" + data.name + "/" + data.id
-                    // return ;
-                } else {
-                    alert("Senha ou Email Incorreto");
-                }
-            });
+        // fetch('https://servercards.herokuapp.com/user-api/login', requestOptions)
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         console.log("Do server",data.email,data.password)
+        //         if (this.state.email === data.email && this.state.password === data.password) {
+        //             // alert(window.location.href.replace('login','menu'));
+        //             window.location.href = window.location.href.replace('/login', '/dashboard') + "/" + data.email + "/" + data.name + "/" + data.id +"/"
+        //             // return ;
+        //         } else {
+        //             alert("Senha ou Email Incorreto");
+        //         }
+        //     });
+        window.location.href = window.location.href.replace('/login', '/dashboard') + "/"
+        
 
 
         e.preventDefault();

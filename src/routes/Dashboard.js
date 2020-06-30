@@ -1,4 +1,9 @@
 import React, { useState } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 import clsx from 'clsx';
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
@@ -32,6 +37,7 @@ import FormControl from '@material-ui/core/FormControl';
 import InputAdornment from '@material-ui/core/InputAdornment'
 import OutlinedInput from '@material-ui/core/OutlinedInput'
 import Card from './dashboard/Card.js';
+import Genero from './dashboard/Genero.js'
 
 // import Chart from './Chart';
 // import Deposits from './Deposits';
@@ -53,27 +59,25 @@ function Copyright() {
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-  },
+  root: { display: 'flex', },
   toolbar: {
-    paddingRight: 25, // keep right padding when drawer closed
-  },
-  toolbarIcon: {
-    display: 'flex',
-    alignItems: 'center',
+    paddingRight: 25, // keep right padding when drawer close
+  }, toolbarIcon: {
+    display: 'flex', alignItems: 'center',
     justifyContent: 'flex-end',
     padding: '0 8px',
     // ...theme.mixins.toolbar,
   },
-  appBar: {
+  appBar:
+  {
     zIndex: theme.zIndex.drawer + 1,
     transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
   },
-  appBarShift: {
+  appBarShift:
+  {
     marginLeft: drawerWidth,
     width: `calc(100% - ${drawerWidth}px)`,
     transition: theme.transitions.create(['width', 'margin'], {
@@ -81,16 +85,20 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
   },
-  menuButton: {
+  menuButton:
+  {
     marginRight: 36,
   },
-  menuButtonHidden: {
+  menuButtonHidden:
+  {
     display: 'none',
   },
-  title: {
+  title:
+  {
     flexGrow: 1,
   },
-  drawerPaper: {
+  drawerPaper:
+  {
     position: 'relative',
     whiteSpace: 'nowrap',
     width: drawerWidth,
@@ -99,7 +107,8 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
   },
-  drawerPaperClose: {
+  drawerPaperClose:
+  {
     overflowX: 'hidden',
     transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
@@ -111,17 +120,23 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   appBarSpacer: theme.mixins.toolbar,
-  content: {
+  content:
+  {
     flexGrow: 1,
     height: '100vh',
     overflow: 'auto',
     width: '100%',
     wordWrap: "nowrap",
   },
-  container: {
+  container:
+  {
     paddingTop: theme.spacing(4),
     paddingBottom: theme.spacing(4),
-    overflow: "auto",
+    color: "black",
+    backgroundImage: "url('https://i.pinimg.com/originals/78/df/8a/78df8a1b2d0f5dc55db7daff161f0f83.jpg')",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover"
+
   },
   paper: {
     padding: theme.spacing(2),
@@ -136,47 +151,69 @@ const useStyles = makeStyles((theme) => ({
     height: '10vh',
     width: '10vh',
     border: "20px",
-    marginTop: '20px',
     borderColor: "black",
   },
   localavatar: {
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
 
   },
   topMenuSelect: {
-    backgroundImage: "url('https://media1.giphy.com/media/l378wcSfS7eXWQgla/giphy.gif')",
+    backgroundImage: "url('https://image.freepik.com/vetores-gratis/fundo-azul-triangulo-com-cores-vivas_23-2148400226.jpg')",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
 
   }, name: {
     display: "flex",
-    textAlign: "center"
+    textAlign: "center",
+    border: " gray 5px",
+    marginLeft: "25px"
   },
-}
-));
+  text: {
+    fontFamily: '"lucida sans unicode", "lucida grande", sans-serif',
+    fontsize: '12px',
+    fontweight: 'bold',
+    fontstyle: 'italic',
+    fontvariant: 'small-caps',
+    letterspacing: '2.8pt',
+    wordspacing: '8.2pt',
+    lineheight: '1.7',
+  }
+}));
 
 
 export default function Dashboard(props) {
-
   const separaUrl = () => {
     try {
       var a = window.location.href.split('/dashboard/');
       a = a[1].split('/');
       var nm = a[1].replace(/(%20)+/g, ' ');
+
+
       return { email: a[0], name: nm, id: a[2] }
     } catch (error) {
       return { email: 'null', name: 'null', id: 'null' }
     }
 
   }
+
+  const dados = {
+    livro: [
+      {
+        titulo: "Senhor dos aneis",
+        capa: "https://images-na.ssl-images-amazon.com/images/I/71ZLavBjpRL.jpg",
+        autor: "Eu",
+        genero: "Fantasia"
+      },
+    ]
+  }
   const classes = useStyles();
   const [data, setState] = useState(separaUrl);
 
 
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
   const handleDrawerOpen = () => {
     setOpen(true);
 
@@ -189,18 +226,18 @@ export default function Dashboard(props) {
 
 
   const click = (e) => {
-    alert(e.target.alt)
+    alert(e.target.id)
   }
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} >
       <CssBaseline />
-      <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
+      <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)} style={{ backgroundColor: "white" }}>
         <Toolbar className={classes.toolbar}>
 
           <IconButton
             edge="start"
-            color="inherit"
+            color="secontary"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
             className={clsx(classes.menuButton, open && classes.menuButtonHidden)}
@@ -223,7 +260,7 @@ export default function Dashboard(props) {
           </Typography>
           <IconButton color="inherit">
             <Badge badgeContent={4} color="secondary">
-              <NotificationsIcon />
+              <NotificationsIcon color="action" />
             </Badge>
           </IconButton>
         </Toolbar>
@@ -236,112 +273,277 @@ export default function Dashboard(props) {
         open={open}
       >
         <div className={classes.topMenuSelect}>
-          <div className={classes.toolbarIcon}>
-            <h4 className={classes.name}>{data.name.split(' ')[0]}</h4>
-            <IconButton onClick={handleDrawerClose}>
-              <ChevronLeftIcon />
-            </IconButton>
-          </div>
-          <div className={classes.localavatar}>
-            <Avatar onClick={click} className={classes.avatar} alt="Loli Dançante" src="https://media.tenor.com/images/74a2b4b0fc38bc87c81f68b0bb24572d/tenor.gif" />
+          <div>
+            {/* <h4 style={{paddingTop:"10px", letterSpacing:"2px", textDecoration:"underline ", fontFamily:"font-family: 'Gill Sans', sans-serif"}} className={classes.name}>{data.name.split(' ')[0]}</h4> */}
+            <div style={{ justifyContent: "flex-end" }} className={classes.toolbarIcon}>
+              <IconButton onClick={handleDrawerClose}>
+                <ChevronLeftIcon color="action" />
+              </IconButton>
+            </div>
 
           </div>
+
+          <Link href="perfil">
+            <div className={classes.localavatar}>
+              <Avatar className={classes.avatar} alt="Loli Dançante" src="https://media.tenor.com/images/74a2b4b0fc38bc87c81f68b0bb24572d/tenor.gif" />
+            </div>
+          </Link>
 
         </div>
 
         <Divider />
-        <List><div>
-          <ListItem button onClick={click}>
-            <ListItemIcon>
-              <ImportContactsIcon />
-            </ListItemIcon>
-            <ListItemText primary="Gêneros" />
-          </ListItem>
-          <ListItem button onClick={click}>
-            <ListItemIcon>
-              <LibraryBooksIcon />
-            </ListItemIcon>
-            <ListItemText primary="Formatos" />
-          </ListItem>
-          <ListItem button onClick={click}>
-            <ListItemIcon>
-              <EmojiObjectsIcon />
-            </ListItemIcon>
-            <ListItemText primary="Conquistas" />
-          </ListItem>
-        </div></List>
+        <List>
+          <div>
+            <Link color="inherit" href="popular">
+              <ListItem button>
+                <ListItemIcon>
+                  <ImportContactsIcon />
+                </ListItemIcon>
+                <ListItemText primary="Populares" />
+              </ListItem>
+            </Link>
+            <Link color="inherit" href="formato">
+              <ListItem button>
+                <ListItemIcon>
+                  <LibraryBooksIcon />
+                </ListItemIcon>
+                <ListItemText primary="Formatos" />
+              </ListItem>
+            </Link>
+            <Link color="inherit" href="conquista">
+              <ListItem button>
+                <ListItemIcon>
+                  <EmojiObjectsIcon />
+                </ListItemIcon>
+                <ListItemText primary="Minhas Cartas" />
+              </ListItem>
+            </Link>
+
+          </div>
+        </List>
         <Divider />
-        <List><div>
-          <ListItem button>
-            <ListItemIcon>
-              <AccountCircleIcon />
-            </ListItemIcon>
-            <ListItemText primary="Configurações" />
-          </ListItem>
-          <ListItem button>
-            <ListItemIcon>
-              <HelpOutlineIcon />
-            </ListItemIcon>
-            <ListItemText primary="Ajuda" />
-          </ListItem>
-          <ListItem button>
-            <ListItemIcon>
-              <ExitToAppIcon />
-            </ListItemIcon>
-            <ListItemText primary="Sair" />
-          </ListItem>
-        </div></List>
+        <List>
+          <div>
+            <Link color="inherit" href="">
+              <ListItem button>
+                <ListItemIcon>
+                  <AccountCircleIcon />
+                </ListItemIcon>
+                <ListItemText primary="Configurações" />
+              </ListItem>
+            </Link>
+            <Link color="inherit" href="">
+              <ListItem button>
+                <ListItemIcon>
+                  <HelpOutlineIcon />
+                </ListItemIcon>
+                <ListItemText primary="Ajuda" />
+              </ListItem>
+            </Link>
+            <Link color="inherit" href="/mega-hack-3/login">
+              <ListItem button>
+                <ListItemIcon>
+                  <ExitToAppIcon />
+                </ListItemIcon>
+                <ListItemText primary="Sair" />
+              </ListItem>
+            </Link>
+          </div></List>
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
 
         {/* Onde a gente coloca cards etc */}
+
         <Container maxWidth="lg" className={classes.container}>
-          <h1>Título</h1>
-          <Grid container
-            direction="row"
-            justify="center"
-            alignItems="baseline"
-            spacing={2}
-          >
 
-            <Grid item xs={7} md={3} lg={9} >
-              <Paper className={fixedHeightPaper} onClick={click}>
-                <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
-              </Paper>
-            </Grid>
-            <Grid item xs={7} md={3} lg={9} >
-              <Paper className={fixedHeightPaper} onClick={click}>
-                <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
-              </Paper>
-            </Grid>
-            <Grid item xs={7} md={3} lg={9} >
-              <Paper className={fixedHeightPaper} onClick={click}>
-                <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
-              </Paper>
-            </Grid>
-            <Grid item xs={7} md={3} lg={9} >
-              <Paper className={fixedHeightPaper} onClick={click}>
-                <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
-              </Paper>
-            </Grid>
-            <Grid item xs={7} md={3} lg={9} >
-              <Paper className={fixedHeightPaper} onClick={click}>
-                <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
-              </Paper>
-            </Grid>
-            <Grid item xs={7} md={3} lg={9} >
-              <Paper className={fixedHeightPaper} onClick={click}>
-                <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
-              </Paper>
-            </Grid>
-            <Grid item xs={7} md={3} lg={9} >
-              <Paper className={fixedHeightPaper} onClick={click}>
-                <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
-              </Paper>
-            </Grid>
 
-            {/* <Grid item xs={12} md={4} lg={3}>
+          <Switch>
+            <Route path="/mega-hack-3/dashboard/popular">
+
+              <h2 className={classes.text} style={{ display: "flex", }}>Livro Animado</h2>
+              <Divider style={{ marginBottom: "10px" }} />
+              <Grid container
+                direction="row"
+                justify="center"
+                alignItems="baseline"
+                spacing={2}
+              >
+                <Grid item xs={7} md={3} lg={9} >
+                  <Paper className={fixedHeightPaper} onClick={click}>
+                    <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
+                  </Paper>
+                </Grid>
+
+              </Grid>
+              <h2 className={classes.text} style={{ display: "flex" }}>Fantasia</h2>
+              <Divider style={{ marginBottom: "10px" }} />
+              <Grid container
+                direction="row"
+                justify="center"
+                alignItems="baseline"
+                spacing={2}
+              >
+                <Grid item xs={7} md={3} lg={9} >
+                  <Paper className={fixedHeightPaper} onClick={click}>
+                    <Card name="Senhor dos Aneis" alt="sda" image="https://images-na.ssl-images-amazon.com/images/I/71ZLavBjpRL.jpg" autor="eu" genero="eudnv" link="http://cabana-on.com/Ler/wp-content/uploads/2017/08/J.R.R.-Tolkien-A-Sociedade-do-Anel-%E2%80%93-O-Senhor-dos-An%C3%A9is-%E2%80%93-Vol-1.pdf" />
+                  </Paper>
+                </Grid>
+                <Grid item xs={7} md={3} lg={9} >
+                  <Paper className={fixedHeightPaper} onClick={click}>
+                    <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
+                  </Paper>
+                </Grid>
+                <Grid item xs={7} md={3} lg={9} >
+                  <Paper className={fixedHeightPaper} onClick={click}>
+                    <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
+                  </Paper>
+                </Grid>
+                <Grid item xs={7} md={3} lg={9} >
+                  <Paper className={fixedHeightPaper} onClick={click}>
+                    <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
+                  </Paper>
+                </Grid>
+              </Grid>
+              <h2 className={classes.text} style={{ display: "flex" }}>Drama</h2>
+              <Divider style={{ marginBottom: "10px" }} />
+              <Grid container
+                direction="row"
+                justify="center"
+                alignItems="baseline"
+                spacing={2}
+              >
+                <Grid item xs={7} md={3} lg={9} >
+                  <Paper className={fixedHeightPaper} onClick={click}>
+                    <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
+                  </Paper>
+                </Grid>
+                <Grid item xs={7} md={3} lg={9} >
+                  <Paper className={fixedHeightPaper} onClick={click}>
+                    <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
+                  </Paper>
+                </Grid>
+                <Grid item xs={7} md={3} lg={9} >
+                  <Paper className={fixedHeightPaper} onClick={click}>
+                    <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
+                  </Paper>
+                </Grid>
+                <Grid item xs={7} md={3} lg={9} >
+                  <Paper className={fixedHeightPaper} onClick={click}>
+                    <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
+                  </Paper>
+                </Grid>
+              </Grid>
+            </Route>
+
+
+            <Route path="/mega-hack-3/dashboard/formato">
+              <h1>Formatos</h1>
+              
+                <Genero></Genero>
+                
+           
+            </Route>
+
+
+            {/* <Route path="/mega-hack-3/dashboard/conquista">
+              <h1>/conquistas</h1>
+            </Route> */}
+
+
+            <Route path="/mega-hack-3/dashboard/config">
+              <h1>/config</h1>
+            </Route>
+
+
+            <Route path="/mega-hack-3/dashboard/ajuda">
+              <h1>/Ajuda</h1>
+            </Route>
+
+            <Route path="/mega-hack-3/dashboard/perfil">
+              <h1>/perfil</h1>
+            </Route>
+
+
+            <Route path="/mega-hack-3/dashboard">
+              <h2 className={classes.text} style={{ display: "flex", }}>Livro Animado</h2>
+              <Divider style={{ marginBottom: "10px" }} />
+              <Grid container
+                direction="row"
+                justify="center"
+                alignItems="baseline"
+                spacing={2}
+              >
+                <Grid item xs={7} md={3} lg={9} >
+                  <Paper className={fixedHeightPaper}>
+                    <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
+                  </Paper>
+                </Grid>
+
+              </Grid>
+              <h2 className={classes.text} style={{ display: "flex" }}>Fantasia</h2>
+              <Divider style={{ marginBottom: "10px" }} />
+              <Grid container
+                direction="row"
+                justify="center"
+                alignItems="baseline"
+                spacing={2}
+              >
+                <Grid item xs={7} md={3} lg={9} >
+                  <Paper className={fixedHeightPaper} onClick={click}>
+                    <Card name="Senhor dos Aneis" alt="sda" image="https://images-na.ssl-images-amazon.com/images/I/71ZLavBjpRL.jpg" autor="eu" genero="eudnv" link="http://cabana-on.com/Ler/wp-content/uploads/2017/08/J.R.R.-Tolkien-A-Sociedade-do-Anel-%E2%80%93-O-Senhor-dos-An%C3%A9is-%E2%80%93-Vol-1.pdf" />
+                  </Paper>
+                </Grid>
+                <Grid item xs={7} md={3} lg={9} >
+                  <Paper className={fixedHeightPaper} onClick={click}>
+                    <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
+                  </Paper>
+                </Grid>
+                <Grid item xs={7} md={3} lg={9} >
+                  <Paper className={fixedHeightPaper} onClick={click}>
+                    <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
+                  </Paper>
+                </Grid>
+                <Grid item xs={7} md={3} lg={9} >
+                  <Paper className={fixedHeightPaper} onClick={click}>
+                    <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
+                  </Paper>
+                </Grid>
+              </Grid>
+              <h2 className={classes.text} style={{ display: "flex" }}>Drama</h2>
+              <Divider style={{ marginBottom: "10px" }} />
+              <Grid container
+                direction="row"
+                justify="center"
+                alignItems="baseline"
+                spacing={2}
+              >
+                <Grid item xs={7} md={3} lg={9} >
+                  <Paper className={fixedHeightPaper} onClick={click}>
+                    <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
+                  </Paper>
+                </Grid>
+                <Grid item xs={7} md={3} lg={9} >
+                  <Paper className={fixedHeightPaper} onClick={click}>
+                    <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
+                  </Paper>
+                </Grid>
+                <Grid item xs={7} md={3} lg={9} >
+                  <Paper className={fixedHeightPaper} onClick={click}>
+                    <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
+                  </Paper>
+                </Grid>
+                <Grid item xs={7} md={3} lg={9} >
+                  <Paper className={fixedHeightPaper} onClick={click}>
+                    <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
+                  </Paper>
+                </Grid>
+              </Grid>
+            </Route>
+          </Switch>
+
+
+          {/* <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}>
                 <Deposits />
               </Paper>
@@ -352,13 +554,13 @@ export default function Dashboard(props) {
                 <Orders />
               </Paper>
             </Grid> */}
-          </Grid>
+
 
           <Box pt={4}>
             <Copyright />
           </Box>
         </Container>
       </main>
-    </div>
+    </div >
   );
 }

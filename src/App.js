@@ -4,6 +4,7 @@ import Login from './routes/Login.js';
 import Homepage from './routes/Homepage.js';
 import Erro from './routes/Erro.js';
 import Dashboard from './routes/Dashboard.js';
+import Conquista from './routes/Conquista';
 import {
   BrowserRouter as Router,
   Switch,
@@ -28,20 +29,15 @@ export default class App extends React.Component {
               <Route path="/mega-hack-3/login">
                 <Login />
               </Route>
+              <Route path='/mega-hack-3/dashboard/conquista'>
+                <Conquista />
+              </Route>
               <Route path='/mega-hack-3/dashboard'>
                 <Dashboard />
               </Route>
-              <Route path="/mega-hack-3/anima/(:email)/(:name)/(:id)">
-                <Animation />
-              </Route>
-              <Route path="/mega-hack-3/login/(:email)/(:name)/(:id)">
-                <Login />
-              </Route>
-              <Route path='/mega-hack-3/dashboard/(:email)/(:name)/(:id)'>
+              
+              <Route path="/mega-hack-3/dashboard/ajuda">
                 <Dashboard />
-              </Route>
-              <Route path='/mega-hack-3/(:email)/(:name)/(:id)'>
-                <Homepage />
               </Route>
               <Route path="/mega-hack-3/">
                 <Homepage />

@@ -6,35 +6,30 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 
+// Da um olhada no CLSX() pra mexer nos cards
 const useStyles = makeStyles({
     root: {
-        maxWidth: 150,
+        maxWidth: 190,
     },
+    text:{
+        display:"fixed"
+    }
+
 });
 
 export default function Cards(props) {
     const classes = useStyles();
-
-    const change = (e) => {
-        alert(e.target.classList.add('MuiCardMedia-root'));
-    }
     return (
-        <Card className={classes.root} onClick={change}>
+        <Card className={classes.root} id={props.id}>
             <CardActionArea>
                 <CardMedia
                     component="img"
                     alt="Loli Comunista"
-                    height="100px"
+                    height="230px"
                     image={props.image}
                     title="Contemplative Reptile"
                 />
                 <CardContent>
-                    <Typography gutterBottom variant="h6" component="h4">
-                        {props.name}
-            </Typography>
-                    <Typography variant="body2" color="textSecondary" component="p">
-                        Autor: {props.autor} <br/> {props.genero}
-            </Typography>
                 </CardContent>
             </CardActionArea>
         </Card>
