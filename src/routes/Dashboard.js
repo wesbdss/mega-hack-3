@@ -146,7 +146,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
   },
   fixedHeight: {
-    height: 240,
+    height: 350,
   },
   avatar: {
     height: '10vh',
@@ -362,8 +362,15 @@ export default function Dashboard(props) {
           <Switch>
             <Route path="/mega-hack-3/dashboard/popular">
 
-              <h2 className={classes.text} style={{ display: "flex", }}>Livro Animado</h2>
-              <Divider style={{ marginBottom: "10px" }} />
+              <h2 className={classes.text} style={{ display: "flex" }}>Populares</h2>
+              <Divider style={{ marginBottom: "20px" }} />
+              <Grid container
+                direction="row"
+                justify="center"
+                alignItems="baseline"
+                spacing={2}
+              >
+
               <Grid container
                 direction="row"
                 justify="center"
@@ -372,69 +379,54 @@ export default function Dashboard(props) {
               >
                 <Grid item xs={7} md={3} lg={9} >
                   <Paper className={fixedHeightPaper} onClick={click}>
+                    <Card name="Senhor dos Aneis" alt="sda" image="https://images-na.ssl-images-amazon.com/images/I/71ZLavBjpRL.jpg" autor="eu" genero="eudnv" link="http://cabana-on.com/Ler/wp-content/uploads/2017/08/J.R.R.-Tolkien-A-Sociedade-do-Anel-%E2%80%93-O-Senhor-dos-An%C3%A9is-%E2%80%93-Vol-1.pdf" tags={["teste","teste1"]} />
+                  </Paper>
+                </Grid>
+                <Grid item xs={7} md={3} lg={9} >
+                  <Paper className={fixedHeightPaper} onClick={click}>
                     <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
+                  </Paper>
+                </Grid>
+                <Grid item xs={7} md={3} lg={9} >
+                  <Paper className={fixedHeightPaper} onClick={click}>
+                    <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
+                  </Paper>
+                </Grid>
+                <Grid item xs={7} md={3} lg={9} >
+                  <Paper className={fixedHeightPaper} onClick={click}>
+                    <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
+                  </Paper>
+                </Grid>
+              </Grid>
+              <Grid item xs={7} md={3} lg={9} >
+                  <Paper className={fixedHeightPaper} onClick={click}>
+                    <Card name="Senhor dos Aneis" alt="sda" image="https://images-na.ssl-images-amazon.com/images/I/71ZLavBjpRL.jpg" autor="eu" genero="eudnv" link="http://cabana-on.com/Ler/wp-content/uploads/2017/08/J.R.R.-Tolkien-A-Sociedade-do-Anel-%E2%80%93-O-Senhor-dos-An%C3%A9is-%E2%80%93-Vol-1.pdf" tags={["teste","teste1"]} />
+                  </Paper>
+                </Grid>
+                <Grid item xs={7} md={3} lg={9} >
+                  <Paper className={fixedHeightPaper} onClick={click}>
+                    <Card name="Senhor dos Aneis" alt="sda" image="https://images-na.ssl-images-amazon.com/images/I/71ZLavBjpRL.jpg" autor="eu" genero="eudnv" link="http://cabana-on.com/Ler/wp-content/uploads/2017/08/J.R.R.-Tolkien-A-Sociedade-do-Anel-%E2%80%93-O-Senhor-dos-An%C3%A9is-%E2%80%93-Vol-1.pdf" tags={["teste","teste1"]} />
+                  </Paper>
+                </Grid>
+                <Grid item xs={7} md={3} lg={9} >
+                  <Paper className={fixedHeightPaper} onClick={click}>
+                    <Card name="Senhor dos Aneis" alt="sda" image="https://images-na.ssl-images-amazon.com/images/I/71ZLavBjpRL.jpg" autor="eu" genero="eudnv" link="http://cabana-on.com/Ler/wp-content/uploads/2017/08/J.R.R.-Tolkien-A-Sociedade-do-Anel-%E2%80%93-O-Senhor-dos-An%C3%A9is-%E2%80%93-Vol-1.pdf" tags={["teste","teste1"]} />
+                  </Paper>
+                </Grid>
+                <Grid item xs={7} md={3} lg={9} >
+                  <Paper className={fixedHeightPaper} onClick={click}>
+                    <Card name="Senhor dos Aneis" alt="sda" image="https://images-na.ssl-images-amazon.com/images/I/71ZLavBjpRL.jpg" autor="eu" genero="eudnv" link="http://cabana-on.com/Ler/wp-content/uploads/2017/08/J.R.R.-Tolkien-A-Sociedade-do-Anel-%E2%80%93-O-Senhor-dos-An%C3%A9is-%E2%80%93-Vol-1.pdf" tags={["teste","teste1"]} />
+                  </Paper>
+                </Grid>
+                <Grid item xs={7} md={3} lg={9} >
+                  <Paper className={fixedHeightPaper} onClick={click}>
+                    <Card name="Senhor dos Aneis" alt="sda" image="https://images-na.ssl-images-amazon.com/images/I/71ZLavBjpRL.jpg" autor="eu" genero="eudnv" link="http://cabana-on.com/Ler/wp-content/uploads/2017/08/J.R.R.-Tolkien-A-Sociedade-do-Anel-%E2%80%93-O-Senhor-dos-An%C3%A9is-%E2%80%93-Vol-1.pdf" tags={["teste","teste1"]} />
                   </Paper>
                 </Grid>
 
+              
               </Grid>
-              <h2 className={classes.text} style={{ display: "flex" }}>Fantasia</h2>
-              <Divider style={{ marginBottom: "10px" }} />
-              <Grid container
-                direction="row"
-                justify="center"
-                alignItems="baseline"
-                spacing={2}
-              >
-                <Grid item xs={7} md={3} lg={9} >
-                  <Paper className={fixedHeightPaper} onClick={click}>
-                    <Card name="Senhor dos Aneis" alt="sda" image="https://images-na.ssl-images-amazon.com/images/I/71ZLavBjpRL.jpg" autor="eu" genero="eudnv" link="http://cabana-on.com/Ler/wp-content/uploads/2017/08/J.R.R.-Tolkien-A-Sociedade-do-Anel-%E2%80%93-O-Senhor-dos-An%C3%A9is-%E2%80%93-Vol-1.pdf" />
-                  </Paper>
-                </Grid>
-                <Grid item xs={7} md={3} lg={9} >
-                  <Paper className={fixedHeightPaper} onClick={click}>
-                    <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
-                  </Paper>
-                </Grid>
-                <Grid item xs={7} md={3} lg={9} >
-                  <Paper className={fixedHeightPaper} onClick={click}>
-                    <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
-                  </Paper>
-                </Grid>
-                <Grid item xs={7} md={3} lg={9} >
-                  <Paper className={fixedHeightPaper} onClick={click}>
-                    <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
-                  </Paper>
-                </Grid>
-              </Grid>
-              <h2 className={classes.text} style={{ display: "flex" }}>Drama</h2>
-              <Divider style={{ marginBottom: "10px" }} />
-              <Grid container
-                direction="row"
-                justify="center"
-                alignItems="baseline"
-                spacing={2}
-              >
-                <Grid item xs={7} md={3} lg={9} >
-                  <Paper className={fixedHeightPaper} onClick={click}>
-                    <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
-                  </Paper>
-                </Grid>
-                <Grid item xs={7} md={3} lg={9} >
-                  <Paper className={fixedHeightPaper} onClick={click}>
-                    <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
-                  </Paper>
-                </Grid>
-                <Grid item xs={7} md={3} lg={9} >
-                  <Paper className={fixedHeightPaper} onClick={click}>
-                    <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
-                  </Paper>
-                </Grid>
-                <Grid item xs={7} md={3} lg={9} >
-                  <Paper className={fixedHeightPaper} onClick={click}>
-                    <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
-                  </Paper>
-                </Grid>
-              </Grid>
+              
             </Route>
 
 

@@ -6,6 +6,7 @@ import GridListTileBar from '@material-ui/core/GridListTileBar';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
+import { Divider } from '@material-ui/core';
 // import tileData from './tileData';
 
 const useStyles = makeStyles((theme) => ({
@@ -45,51 +46,22 @@ const useStyles = makeStyles((theme) => ({
 
 const tileData = [
   {
-    img: "https://img.freepik.com/free-vector/abstract-technology-particle-background_52683-25766.jpg?size=626&ext=jpg",
-    title: 'A Gatora do Lago',
-    author: 'Donlea, Charlie',
+    img: "https://www.sbs.com.au/theboat/images/fb-image.jpg",
+    title: 'História Animada',
+    author: '2 Livros',
   },{
-    img: "https://img.freepik.com/free-vector/abstract-technology-particle-background_52683-25766.jpg?size=626&ext=jpg",
-    title: 'A Gatora do Lago',
-    author: 'Donlea, Charlie',
+    img: "https://lh3.googleusercontent.com/proxy/gKN6WNJdsjM-7kYrdqkPGcSttmxl_r_N86ssvyOjw_2Au92nu94F1yBJiPb_mAnNt2JcFfWOmvezkNjx2OXggciWiNfYZG7kr_suev3QDgFJV2wmlpbx6_9QkZcYyW0NPvEO",
+    title: 'PDF',
+    author: '10 Livros',
   },{
-    img: "https://img.freepik.com/free-vector/abstract-technology-particle-background_52683-25766.jpg?size=626&ext=jpg",
-    title: 'A Gatora do Lago',
-    author: 'Donlea, Charlie',
+    img: "https://icons.iconarchive.com/icons/carlosjj/microsoft-office-2013/256/Word-icon.png",
+    title: 'WORD',
+    author: '14 Livros',
   }
   ,{
-    img: "https://img.freepik.com/free-vector/abstract-technology-particle-background_52683-25766.jpg?size=626&ext=jpg",
-    title: 'A Gatora do Lago',
-    author: 'Donlea, Charlie',
-  }
-  ,{
-    img: "https://img.freepik.com/free-vector/abstract-technology-particle-background_52683-25766.jpg?size=626&ext=jpg",
-    title: 'A Gatora do Lago',
-    author: 'Donlea, Charlie',
-  },{
-    img: "https://img.freepik.com/free-vector/abstract-technology-particle-background_52683-25766.jpg?size=626&ext=jpg",
-    title: 'A Gatora do Lago',
-    author: 'Donlea, Charlie',
-  }
-  ,{
-    img: "https://img.freepik.com/free-vector/abstract-technology-particle-background_52683-25766.jpg?size=626&ext=jpg",
-    title: 'A Gatora do Lago',
-    author: 'Donlea, Charlie',
-  }
-  ,{
-    img: "https://img.freepik.com/free-vector/abstract-technology-particle-background_52683-25766.jpg?size=626&ext=jpg",
-    title: 'A Gatora do Lago',
-    author: 'Donlea, Charlie',
-  }
-  ,{
-    img: "https://img.freepik.com/free-vector/abstract-technology-particle-background_52683-25766.jpg?size=626&ext=jpg",
-    title: 'A Gatora do Lago',
-    author: 'Donlea, Charlie',
-  }
-  ,{
-    img: "https://img.freepik.com/free-vector/abstract-technology-particle-background_52683-25766.jpg?size=626&ext=jpg",
-    title: 'A Gatora do Lago',
-    author: 'Donlea, Charlie',
+    img:"https://i.dlpng.com/static/png/6889500_preview.png",
+    title: 'Web',
+    author: '10 Livros',
   }
 ]
 
@@ -100,14 +72,13 @@ export default function Genero() {
     <div className={classes.root}>
       <GridList cellHeight={180} className={classes.gridList}>
         <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
-          <ListSubheader component="div">December</ListSubheader>
+          <Divider style={{marginBottom:"30px"}}/>
         </GridListTile>
         {tileData.map((tile) => (
           <GridListTile key={tile.img}>
             <img src={tile.img} alt={tile.title} />
             <GridListTileBar
               title={tile.title}
-              subtitle={<span>by: {tile.author}</span>}
               actionIcon={
                 <IconButton aria-label={`info about ${tile.title}`} className={classes.icon}>
                   <InfoIcon />
