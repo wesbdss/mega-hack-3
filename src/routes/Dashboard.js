@@ -38,6 +38,7 @@ import InputAdornment from '@material-ui/core/InputAdornment'
 import OutlinedInput from '@material-ui/core/OutlinedInput'
 import Card from './dashboard/Card.js';
 import Genero from './dashboard/Genero.js'
+import Conquista from './Conquista';
 
 // import Chart from './Chart';
 // import Deposits from './Deposits';
@@ -446,9 +447,9 @@ export default function Dashboard(props) {
             </Route>
 
 
-            {/* <Route path="/mega-hack-3/dashboard/conquista">
-              <h1>/conquistas</h1>
-            </Route> */}
+            <Route path="/mega-hack-3/dashboard/conquista">
+              <Conquista/>
+            </Route>
 
 
             <Route path="/mega-hack-3/dashboard/config">
