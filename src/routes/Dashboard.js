@@ -39,6 +39,7 @@ import OutlinedInput from '@material-ui/core/OutlinedInput'
 import Card from './dashboard/Card.js';
 import Genero from './dashboard/Genero.js'
 import Conquista from './Conquista';
+import Perfil from './Perfil.js';
 
 // import Chart from './Chart';
 // import Deposits from './Deposits';
@@ -136,7 +137,8 @@ const useStyles = makeStyles((theme) => ({
     color: "black",
     backgroundImage: "url('https://i.pinimg.com/originals/78/df/8a/78df8a1b2d0f5dc55db7daff161f0f83.jpg')",
     backgroundRepeat: "no-repeat",
-    backgroundSize: "cover"
+    backgroundSize: "cover",
+    height: "max-heiht"
 
   },
   paper: {
@@ -186,33 +188,25 @@ const useStyles = makeStyles((theme) => ({
 
 
 export default function Dashboard(props) {
-  const separaUrl = () => {
-    try {
-      var a = window.location.href.split('/dashboard/');
-      a = a[1].split('/');
-      var nm = a[1].replace(/(%20)+/g, ' ');
+  // const separaUrl = () => {
+  //   try {
+  //     var a = window.location.href.split('/dashboard/');
+  //     a = a[1].split('/');
+  //     var nm = a[1].replace(/(%20)+/g, ' ');
 
 
-      return { email: a[0], name: nm, id: a[2] }
-    } catch (error) {
-      return { email: 'null', name: 'null', id: 'null' }
-    }
+  //     return { email: a[0], name: nm, id: a[2] }
+  //   } catch (error) {
+  //     return { email: 'null', name: 'null', id: 'null' }
+  //   }
 
-  }
-
-  const dados = {
-    livro: [
-      {
-        titulo: "Senhor dos aneis",
-        capa: "https://images-na.ssl-images-amazon.com/images/I/71ZLavBjpRL.jpg",
-        autor: "Eu",
-        genero: "Fantasia"
-      },
-    ]
-  }
+  // }
   const classes = useStyles();
-  const [data, setState] = useState(separaUrl);
+  // const [data, setState] = useState(separaUrl);
+ 
 
+
+ 
 
   const [open, setOpen] = React.useState(false);
   const handleDrawerOpen = () => {
@@ -229,6 +223,19 @@ export default function Dashboard(props) {
   const click = (e) => {
     alert(e.target.id)
   }
+
+  const elements = ["https://images-americanas.b2w.io/produtos/01/00/sku/35580/5/35580598_1GG.jpg", "https://a-static.mlcdn.com.br/618x463/livro-amigos/livrariamartinsfontespaulista/21009/ef344cdd25e1edcc64c2f29ca48502d9.jpg", "https://images-na.ssl-images-amazon.com/images/I/71ZLavBjpRL.jpg", "https://m.media-amazon.com/images/I/51KIUhkcuhL.jpg", "https://kbimages1-a.akamaihd.net/0586fdeb-c8eb-460d-9fb5-ffe2c36fb749/1200/1200/False/meu-primeiro-caozinho-livro-infantil-6-7-anos-timba-chega-a-casa.jpg"]
+  const itens = []
+
+  for (const [index, value] of elements.entries()) {
+    itens.push(<Grid item xs={7} md={3} lg={9} >
+      <Paper className={fixedHeightPaper} onClick={click}>
+        <Card name="meu livro" alt="sda" image={value} autor="eu" genero="eudnv" link="http://cabana-on.com/Ler/wp-content/uploads/2017/08/J.R.R.-Tolkien-A-Sociedade-do-Anel-%E2%80%93-O-Senhor-dos-An%C3%A9is-%E2%80%93-Vol-1.pdf" tags={["teste", "teste1"]} />
+      </Paper>
+    </Grid>
+    )
+  }
+
 
   return (
     <div className={classes.root} >
@@ -370,77 +377,19 @@ export default function Dashboard(props) {
                 alignItems="baseline"
                 spacing={2}
               >
-
-              <Grid container
-                direction="row"
-                justify="center"
-                alignItems="baseline"
-                spacing={2}
-              >
-                <Grid item xs={7} md={3} lg={9} >
-                  <Paper className={fixedHeightPaper} onClick={click}>
-                    <Card name="Senhor dos Aneis" alt="sda" image="https://images-na.ssl-images-amazon.com/images/I/71ZLavBjpRL.jpg" autor="eu" genero="eudnv" link="http://cabana-on.com/Ler/wp-content/uploads/2017/08/J.R.R.-Tolkien-A-Sociedade-do-Anel-%E2%80%93-O-Senhor-dos-An%C3%A9is-%E2%80%93-Vol-1.pdf" tags={["teste","teste1"]} />
-                  </Paper>
-                </Grid>
-                <Grid item xs={7} md={3} lg={9} >
-                  <Paper className={fixedHeightPaper} onClick={click}>
-                    <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
-                  </Paper>
-                </Grid>
-                <Grid item xs={7} md={3} lg={9} >
-                  <Paper className={fixedHeightPaper} onClick={click}>
-                    <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
-                  </Paper>
-                </Grid>
-                <Grid item xs={7} md={3} lg={9} >
-                  <Paper className={fixedHeightPaper} onClick={click}>
-                    <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
-                  </Paper>
-                </Grid>
+                {itens}
               </Grid>
-              <Grid item xs={7} md={3} lg={9} >
-                  <Paper className={fixedHeightPaper} onClick={click}>
-                    <Card name="Senhor dos Aneis" alt="sda" image="https://images-na.ssl-images-amazon.com/images/I/71ZLavBjpRL.jpg" autor="eu" genero="eudnv" link="http://cabana-on.com/Ler/wp-content/uploads/2017/08/J.R.R.-Tolkien-A-Sociedade-do-Anel-%E2%80%93-O-Senhor-dos-An%C3%A9is-%E2%80%93-Vol-1.pdf" tags={["teste","teste1"]} />
-                  </Paper>
-                </Grid>
-                <Grid item xs={7} md={3} lg={9} >
-                  <Paper className={fixedHeightPaper} onClick={click}>
-                    <Card name="Senhor dos Aneis" alt="sda" image="https://images-na.ssl-images-amazon.com/images/I/71ZLavBjpRL.jpg" autor="eu" genero="eudnv" link="http://cabana-on.com/Ler/wp-content/uploads/2017/08/J.R.R.-Tolkien-A-Sociedade-do-Anel-%E2%80%93-O-Senhor-dos-An%C3%A9is-%E2%80%93-Vol-1.pdf" tags={["teste","teste1"]} />
-                  </Paper>
-                </Grid>
-                <Grid item xs={7} md={3} lg={9} >
-                  <Paper className={fixedHeightPaper} onClick={click}>
-                    <Card name="Senhor dos Aneis" alt="sda" image="https://images-na.ssl-images-amazon.com/images/I/71ZLavBjpRL.jpg" autor="eu" genero="eudnv" link="http://cabana-on.com/Ler/wp-content/uploads/2017/08/J.R.R.-Tolkien-A-Sociedade-do-Anel-%E2%80%93-O-Senhor-dos-An%C3%A9is-%E2%80%93-Vol-1.pdf" tags={["teste","teste1"]} />
-                  </Paper>
-                </Grid>
-                <Grid item xs={7} md={3} lg={9} >
-                  <Paper className={fixedHeightPaper} onClick={click}>
-                    <Card name="Senhor dos Aneis" alt="sda" image="https://images-na.ssl-images-amazon.com/images/I/71ZLavBjpRL.jpg" autor="eu" genero="eudnv" link="http://cabana-on.com/Ler/wp-content/uploads/2017/08/J.R.R.-Tolkien-A-Sociedade-do-Anel-%E2%80%93-O-Senhor-dos-An%C3%A9is-%E2%80%93-Vol-1.pdf" tags={["teste","teste1"]} />
-                  </Paper>
-                </Grid>
-                <Grid item xs={7} md={3} lg={9} >
-                  <Paper className={fixedHeightPaper} onClick={click}>
-                    <Card name="Senhor dos Aneis" alt="sda" image="https://images-na.ssl-images-amazon.com/images/I/71ZLavBjpRL.jpg" autor="eu" genero="eudnv" link="http://cabana-on.com/Ler/wp-content/uploads/2017/08/J.R.R.-Tolkien-A-Sociedade-do-Anel-%E2%80%93-O-Senhor-dos-An%C3%A9is-%E2%80%93-Vol-1.pdf" tags={["teste","teste1"]} />
-                  </Paper>
-                </Grid>
-
-              
-              </Grid>
-              
             </Route>
 
 
             <Route path="/mega-hack-3/dashboard/formato">
               <h1>Formatos</h1>
-              
-                <Genero></Genero>
-                
-           
+              <Genero/>
             </Route>
 
 
             <Route path="/mega-hack-3/dashboard/conquista">
-              <Conquista/>
+              <Conquista />
             </Route>
 
 
@@ -453,11 +402,6 @@ export default function Dashboard(props) {
               <h1>/Ajuda</h1>
             </Route>
 
-            <Route path="/mega-hack-3/dashboard/perfil">
-              <h1>/perfil</h1>
-            </Route>
-
-
             <Route path="/mega-hack-3/dashboard">
               <h2 className={classes.text} style={{ display: "flex", }}>Livro Animado</h2>
               <Divider style={{ marginBottom: "10px" }} />
@@ -467,70 +411,7 @@ export default function Dashboard(props) {
                 alignItems="baseline"
                 spacing={2}
               >
-                <Grid item xs={7} md={3} lg={9} >
-                  <Paper className={fixedHeightPaper}>
-                    <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
-                  </Paper>
-                </Grid>
-
-              </Grid>
-              <h2 className={classes.text} style={{ display: "flex" }}>Fantasia</h2>
-              <Divider style={{ marginBottom: "10px" }} />
-              <Grid container
-                direction="row"
-                justify="center"
-                alignItems="baseline"
-                spacing={2}
-              >
-                <Grid item xs={7} md={3} lg={9} >
-                  <Paper className={fixedHeightPaper} onClick={click}>
-                    <Card name="Senhor dos Aneis" alt="sda" image="https://images-na.ssl-images-amazon.com/images/I/71ZLavBjpRL.jpg" autor="eu" genero="eudnv" link="http://cabana-on.com/Ler/wp-content/uploads/2017/08/J.R.R.-Tolkien-A-Sociedade-do-Anel-%E2%80%93-O-Senhor-dos-An%C3%A9is-%E2%80%93-Vol-1.pdf" />
-                  </Paper>
-                </Grid>
-                <Grid item xs={7} md={3} lg={9} >
-                  <Paper className={fixedHeightPaper} onClick={click}>
-                    <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
-                  </Paper>
-                </Grid>
-                <Grid item xs={7} md={3} lg={9} >
-                  <Paper className={fixedHeightPaper} onClick={click}>
-                    <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
-                  </Paper>
-                </Grid>
-                <Grid item xs={7} md={3} lg={9} >
-                  <Paper className={fixedHeightPaper} onClick={click}>
-                    <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
-                  </Paper>
-                </Grid>
-              </Grid>
-              <h2 className={classes.text} style={{ display: "flex" }}>Drama</h2>
-              <Divider style={{ marginBottom: "10px" }} />
-              <Grid container
-                direction="row"
-                justify="center"
-                alignItems="baseline"
-                spacing={2}
-              >
-                <Grid item xs={7} md={3} lg={9} >
-                  <Paper className={fixedHeightPaper} onClick={click}>
-                    <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
-                  </Paper>
-                </Grid>
-                <Grid item xs={7} md={3} lg={9} >
-                  <Paper className={fixedHeightPaper} onClick={click}>
-                    <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
-                  </Paper>
-                </Grid>
-                <Grid item xs={7} md={3} lg={9} >
-                  <Paper className={fixedHeightPaper} onClick={click}>
-                    <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
-                  </Paper>
-                </Grid>
-                <Grid item xs={7} md={3} lg={9} >
-                  <Paper className={fixedHeightPaper} onClick={click}>
-                    <Card name="lolis" alt="lolis_3" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" />
-                  </Paper>
-                </Grid>
+                {itens}
               </Grid>
             </Route>
           </Switch>

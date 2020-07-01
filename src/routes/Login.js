@@ -37,7 +37,7 @@ export default class Login extends Component {
         //     headers: { 'Content-Type': 'application/json' },
         //     body: JSON.stringify({ email: this.state.email, password: this.state.password })
         // }
-        console.log(this.state.email,this.state.password);
+        console.log(this.state.email, this.state.password);
         // fetch('https://servercards.herokuapp.com/user-api/login', requestOptions)
         //     .then(response => response.json())
         //     .then(data => {
@@ -51,7 +51,7 @@ export default class Login extends Component {
         //         }
         //     });
         window.location.href = window.location.href.replace('/login', '/dashboard') + "/"
-        
+
 
 
         e.preventDefault();
@@ -64,11 +64,14 @@ export default class Login extends Component {
                     <div className="letra">
                         AIr Toon
                     </div>
+                    <div>
+                        <h2 style={{color:"#48d1cc",WebkitTextStroke:"2px black"}}>Explore uma aventura em cada CLICK</h2>
+                    </div>
 
                 </div>
                 <div className="col meio">
-                    <Alert variant="dark " className="alerta" >
-                            <Alert.Heading>Explore uma aventura em cada CLICK</Alert.Heading>
+                    <Alert style={{backgroundColor:"#87CEFA"}} className="alerta" >
+
                         <Form onSubmit={this.handleSubmit}>
                             <Form.Group controlId="formBasicEmail">
                                 <Form.Label>Email</Form.Label>

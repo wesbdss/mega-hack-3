@@ -4,6 +4,7 @@ import Login from './routes/Login.js';
 import Homepage from './routes/Homepage.js';
 import Erro from './routes/Erro.js';
 import Dashboard from './routes/Dashboard.js';
+import Perfil from './routes/Perfil';
 
 import {
   BrowserRouter as Router,
@@ -22,26 +23,32 @@ export default class App extends React.Component {
         <div className="App">
           <header className="App-header">
             <Switch>
-            
+
+
+
               <Route path="/mega-hack-3/anima">
                 <Animation />
               </Route>
               <Route path="/mega-hack-3/login">
                 <Login />
               </Route>
-              <Route path='/mega-hack-3/dashboard'>
-                <Dashboard />
+              <Route path="/mega-hack-3/dashboard/perfil">
+                <Perfil />
               </Route>
               <Route path="/mega-hack-3/dashboard/ajuda">
                 <Dashboard />
               </Route>
+              <Route path='/mega-hack-3/dashboard'>
+                <Dashboard />
+              </Route>
+              
               <Route path="/mega-hack-3/">
                 <Homepage />
               </Route>
               <Route path='/'>
                 <Erro />
               </Route>
-              
+
 
             </Switch>
           </header>

@@ -45,10 +45,10 @@ export default function Cards(props) {
                     {["Aventura","Ação"].map((item) => {return <div className={classes.color}>{item}</div>})}
                 </Typography> 
                 <Typography variant="body2" color="textSecondary" component="h7">
-                    Senhor dos Aneis
+                    {props.name}
                 </Typography> 
                 <Typography variant="body2" color="textSecondary" component="p">
-                    by Author
+                    by {props.autor}
                 </Typography> 
                 <Typography variant="body2" color="textSecondary" component="p">
                     Nº de páginas: muitas

@@ -1,6 +1,5 @@
 body{
     width: 100%;
-    font-family: Arial, Tahoma, sans-serif;
 }
 
 
@@ -12,6 +11,7 @@ body{
 .meio{
     justify-content: center;
     margin-top: 30vh;
+    padding: 40px;
 }
 
 .top{
@@ -27,7 +27,7 @@ body{
     
 }
 .bottom{
-    background-color: rgb(73, 73, 73);
+    background-color: #87CEEB;
     position: fixed;
     bottom:0;
     left:0;
@@ -43,7 +43,7 @@ body{
     color: rgb(30, 131, 214);
     text-shadow: 6px 6px #000000;
     border: 10px rgb(73, 73, 73);
-    font-family: "Lucida Console", Monaco, monospace;
+    font-family: sans-serif;
 }
 .alerta{
     padding: 30%;
