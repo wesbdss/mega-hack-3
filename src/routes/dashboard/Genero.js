@@ -50,7 +50,7 @@ const tileData = [
     title: 'História Animada',
     author: '2 Livros',
   },{
-    img: "https://lh3.googleusercontent.com/proxy/gKN6WNJdsjM-7kYrdqkPGcSttmxl_r_N86ssvyOjw_2Au92nu94F1yBJiPb_mAnNt2JcFfWOmvezkNjx2OXggciWiNfYZG7kr_suev3QDgFJV2wmlpbx6_9QkZcYyW0NPvEO",
+    img: "https://img.ibxk.com.br/2014/05/19/19185013492726.jpg?w=1120&h=420&mode=crop&scale=both",
     title: 'PDF',
     author: '10 Livros',
   },{
@@ -59,7 +59,7 @@ const tileData = [
     author: '14 Livros',
   }
   ,{
-    img:"https://i.dlpng.com/static/png/6889500_preview.png",
+    img:"https://www.oficinadanet.com.br/imagens/post/25102/www_750x469_5c87bcdb85fab.jpg",
     title: 'Web',
     author: '10 Livros',
   }

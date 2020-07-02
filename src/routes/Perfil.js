@@ -33,7 +33,11 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import EmojiObjectsIcon from '@material-ui/icons/EmojiObjects';
 import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 import ImportContactsIcon from '@material-ui/icons/ImportContacts';
-import Card from "./dashboard/Card"
+import TopAvatar from "./perfil/Topavatar";
+import Charts from './perfil/Chart';
+import Deposits from './perfil/Deposits';
+import Orders from './perfil/Orders';
+
 
 function Copyright() {
     return (
@@ -125,7 +129,7 @@ const useStyles = makeStyles((theme) => ({
         paddingTop: theme.spacing(4),
         paddingBottom: theme.spacing(4),
         color: "black",
-        display:"flex"
+        display: "flex"
 
     },
     paper: {
@@ -179,6 +183,18 @@ const useStyles = makeStyles((theme) => ({
 export default function Perfil() {
     const classes = useStyles();
 
+    const [livro, livros] = useState([]);
+
+    React.useEffect(() => {
+        async function request() {
+            const response = await fetch(`https://back-airtoon.herokuapp.com/books`);
+            const json = await response.json();
+            livros(json);
+        }
+        request();
+
+
+    });
 
 
     const [open, setOpen] = React.useState(false);
@@ -236,7 +252,7 @@ export default function Perfil() {
 
                     <Link href="perfil">
                         <div className={classes.localavatar}>
-                            <Avatar className={classes.avatar} alt="Loli Dançante" src="https://media.tenor.com/images/74a2b4b0fc38bc87c81f68b0bb24572d/tenor.gif" />
+                        <Avatar className={classes.avatar} alt="Loli Dançante" src="https://media.tenor.com/images/74a2b4b0fc38bc87c81f68b0bb24572d/tenor.gif" />
                         </div>
                     </Link>
 
@@ -300,17 +316,20 @@ export default function Perfil() {
                         </Link>
                     </div></List>
             </Drawer>
-            <main className={classes.content} />
+
             <div className={classes.appBarSpacer} />
             <Container maxWidth="lg" className={classes.container}>
-                <Divider style={{ marginBottom: "20px" }} />
                 <Grid container
                     direction="row"
                     justify="center"
-                    alignItems="baseline"
+                    alignItems="flex"
                     spacing={2}
                 >
-
+                    <TopAvatar></TopAvatar>
+                    <Divider style={{margin:"40px"}}/>
+                    <Orders></Orders>
+                    <Divider style={{margin:"40px"}}/>
+                    {/* <Deposits></Deposits> */}
                     {/* <Grid item xs={7} md={3} lg={9} >
                         <Paper className={fixedHeightPaper} >
                             <Card name="meu livro" alt="sda" image="/mega-hack-3/loliWisky.jpg" autor="eu" genero="eudnv" link="http://cabana-on.com/Ler/wp-content/uploads/2017/08/J.R.R.-Tolkien-A-Sociedade-do-Anel-%E2%80%93-O-Senhor-dos-An%C3%A9is-%E2%80%93-Vol-1.pdf" tags={["teste", "teste1"]} />
@@ -318,9 +337,6 @@ export default function Perfil() {
                     </Grid> */}
 
                 </Grid>
-                <Box pt={4}>
-                    <h1>teste</h1>
-                </Box>
             </Container>
         </div>
     )
