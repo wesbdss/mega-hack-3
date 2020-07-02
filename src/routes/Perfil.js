@@ -141,7 +141,7 @@ export default function Perfil() {
                 <Divider />
                 <List>
                     <div>
-                        <Link color="inherit" href="popular">
+                        <Link color="inherit" href="/mega-hack-3/dashboard/popular">
                             <ListItem button>
                                 <ListItemIcon>
                                     <ImportContactsIcon />
@@ -149,7 +149,7 @@ export default function Perfil() {
                                 <ListItemText primary="Populares" />
                             </ListItem>
                         </Link>
-                        <Link color="inherit" href="formato">
+                        <Link color="inherit" href="/mega-hack-3/dashboard/formatos">
                             <ListItem button>
                                 <ListItemIcon>
                                     <LibraryBooksIcon />
@@ -157,7 +157,7 @@ export default function Perfil() {
                                 <ListItemText primary="Formatos" />
                             </ListItem>
                         </Link>
-                        <Link color="inherit" href="conquista">
+                        <Link color="inherit" href="/mega-hack-3/dashboard/conquistas">
                             <ListItem button>
                                 <ListItemIcon>
                                     <EmojiObjectsIcon />

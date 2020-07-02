@@ -51,9 +51,6 @@ export default class Login extends Component {
         //         }
         //     });
         window.location.href = window.location.href.replace('/login', '/dashboard') + "/"
-
-
-
         e.preventDefault();
     }
 

@@ -152,7 +152,7 @@ export default function Dashboard(props) {
         {/* Lateral da pagina */}
           </div>
 
-          <Link href="perfil">
+          <Link href="/mega-hack-3/perfil">
             <div className={classes.localavatar}>
               <Avatar className={classes.avatar} alt="Loli Dançante" src="https://media.tenor.com/images/74a2b4b0fc38bc87c81f68b0bb24572d/tenor.gif" />
             </div>
