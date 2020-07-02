@@ -5,6 +5,8 @@ import Homepage from './routes/Homepage.js';
 import Erro from './routes/Erro.js';
 import Dashboard from './routes/Dashboard.js';
 import Perfil from './routes/Perfil';
+import Online from './routes/Online.js';
+
 
 import {
   BrowserRouter as Router,
@@ -24,24 +26,24 @@ export default class App extends React.Component {
           <header className="App-header">
             <Switch>
 
-
-
-              <Route path="/mega-hack-3/anima">
-                <Animation />
-              </Route>
-              <Route path="/mega-hack-3/login">
-                <Login />
-              </Route>
               <Route path="/mega-hack-3/dashboard/perfil">
                 <Perfil />
               </Route>
               <Route path="/mega-hack-3/dashboard/ajuda">
                 <Dashboard />
               </Route>
+              <Route path="/mega-hack-3/dashboard/online">
+                <Online />
+              </Route>
+              <Route path="/mega-hack-3/login">
+                <Login />
+              </Route>
               <Route path='/mega-hack-3/dashboard'>
                 <Dashboard />
               </Route>
-              
+              <Route path="/mega-hack-3/anima">
+                <Animation />
+              </Route>
               <Route path="/mega-hack-3/">
                 <Homepage />
               </Route>

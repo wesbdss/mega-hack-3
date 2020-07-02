@@ -9,6 +9,7 @@ import TableRow from '@material-ui/core/TableRow';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import Typography from '@material-ui/core/Typography';
 import Title from './Title';
+import { Paper } from '@material-ui/core';
 
 // Generate Order Data
 function createData(id, date, name, shipTo, paymentMethod, amount) {
@@ -45,30 +46,33 @@ const useStyles = makeStyles((theme) => ({
 export default function Orders() {
   const classes = useStyles();
   return (
-    <React.Fragment>
-      <Title style={{marginTop:"40px"}}>Histórico de Leitura</Title>
-      <Table size="small">
-        <TableHead>
-          <TableRow>
-            <TableCell>Data</TableCell>
-            <TableCell>Nome</TableCell>
-            <TableCell>Progresso de Leitura</TableCell>
-            <TableCell>Cards Encontrados</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.id}>
-              <TableCell>{row.date}</TableCell>
-              <TableCell>{row.name}</TableCell>
-              <TableCell>{row.shipTo}</TableCell>
-              <TableCell>{row.paymentMethod}</TableCell>
-              <TableCell align="right">{row.amount}</TableCell>
+    <Paper>
+      <React.Fragment>
+        <Title style={{ marginTop: "40px" }}>Histórico de Leitura</Title>
+        <Table size="small" >
+          <TableHead>
+            <TableRow>
+              <TableCell>Data</TableCell>
+              <TableCell>Nome</TableCell>
+              <TableCell>Progresso de Leitura</TableCell>
+              <TableCell>Cards Encontrados</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+          </TableHead>
+          <TableBody>
+            {rows.map((row) => (
+              <TableRow key={row.id}>
+                <TableCell>{row.date}</TableCell>
+                <TableCell>{row.name}</TableCell>
+                <TableCell>{row.shipTo}</TableCell>
+                <TableCell>{row.paymentMethod}</TableCell>
+                <TableCell align="right">{row.amount}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
 
-    </React.Fragment>
+      </React.Fragment>
+    </Paper>
+
   );
 }

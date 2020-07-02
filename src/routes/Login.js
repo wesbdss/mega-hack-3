@@ -70,7 +70,7 @@ export default class Login extends Component {
 
                 </div>
                 <div className="col meio">
-                    <Alert style={{backgroundColor:"#87CEFA"}} className="alerta" >
+                    <Alert style={{backgroundColor:"#4682B4"}} className="alerta" >
 
                         <Form onSubmit={this.handleSubmit}>
                             <Form.Group controlId="formBasicEmail">

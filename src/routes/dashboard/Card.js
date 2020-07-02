@@ -15,14 +15,16 @@ const useStyles = makeStyles({
         display:"fixed"
     },color:
     {
+        display:"flex",
         border: '1px solid black',
         padding:'1px',
         color: '#4169E1',
         display:"inline",
-        borderRadius:"20px",
+        borderRadius:"5px",
         width: 'min-content',
         flexFlow: "row wrap",
-        margin: '10px',
+        margin: '2px',
+        flexWrap:"wrap",
         justifyContent: "space-between"
     }
 
@@ -35,26 +37,23 @@ export default function Cards(props) {
             <CardActionArea>
                 <CardMedia
                     component="img"
-                    alt="Loli Comunista"
+                    alt={props.alt}
                     height="170px"
                     image={props.image}
-                    title="Contemplative Reptile"
+                    title={props.alt}
                 />
                 <CardContent>
                 <Typography variant="body2" color="textSecondary" component="p">
-                    {["Aventura","Ação"].map((item) => {return <div className={classes.color}>{item}</div>})}
+                    {props.tags.map(item =>(<span className={classes.color}>{item}</span>))}
                 </Typography> 
-                <Typography variant="body2" color="textSecondary" component="h7">
+                <Typography variant="body2" color="textSecondary" component="h6">
                     {props.name}
                 </Typography> 
                 <Typography variant="body2" color="textSecondary" component="p">
                     by {props.autor}
                 </Typography> 
                 <Typography variant="body2" color="textSecondary" component="p">
-                    Nº de páginas: muitas
-                </Typography> 
-                <Typography variant="body2" color="textSecondary" component="p">
-                    Avaliação: 10/10
+                    Avaliação: {props.nota}
                 </Typography> 
                 </CardContent>
             </CardActionArea>

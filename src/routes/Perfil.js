@@ -37,7 +37,8 @@ import TopAvatar from "./perfil/Topavatar";
 import Charts from './perfil/Chart';
 import Deposits from './perfil/Deposits';
 import Orders from './perfil/Orders';
-
+import useStyles from "./dashboard/stylescustom"
+import Dados from './perfil/Dados';
 
 function Copyright() {
     return (
@@ -52,130 +53,9 @@ function Copyright() {
     );
 }
 
-const drawerWidth = 240;
 
-const useStyles = makeStyles((theme) => ({
-    root: { display: 'flex', },
-    toolbar: {
-        paddingRight: 25, // keep right padding when drawer close
-    }, toolbarIcon: {
-        display: 'flex', alignItems: 'center',
-        justifyContent: 'flex-end',
-        padding: '0 8px',
-        // ...theme.mixins.toolbar,
-    },
-    appBar:
-    {
-        zIndex: theme.zIndex.drawer + 1,
-        transition: theme.transitions.create(['width', 'margin'], {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen,
-        }),
-    },
-    appBarShift:
-    {
-        marginLeft: drawerWidth,
-        width: `calc(100% - ${drawerWidth}px)`,
-        transition: theme.transitions.create(['width', 'margin'], {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.enteringScreen,
-        }),
-    },
-    menuButton:
-    {
-        marginRight: 36,
-    },
-    menuButtonHidden:
-    {
-        display: 'none',
-    },
-    title:
-    {
-        flexGrow: 1,
-    },
-    drawerPaper:
-    {
-        position: 'relative',
-        whiteSpace: 'nowrap',
-        width: drawerWidth,
-        transition: theme.transitions.create('width', {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.enteringScreen,
-        }),
-    },
-    drawerPaperClose:
-    {
-        overflowX: 'hidden',
-        transition: theme.transitions.create('width', {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen,
-        }),
-        width: theme.spacing(7),
-        [theme.breakpoints.up('sm')]: {
-            width: theme.spacing(9),
-        },
-    },
-    appBarSpacer: theme.mixins.toolbar,
-    content:
-    {
-        flexGrow: 1,
-        height: '100vh',
-        overflow: 'auto',
-        width: '100%',
-        wordWrap: "nowrap",
-    },
-    container:
-    {
-        paddingTop: theme.spacing(4),
-        paddingBottom: theme.spacing(4),
-        color: "black",
-        display: "flex"
 
-    },
-    paper: {
-        padding: theme.spacing(2),
-        display: 'flex',
-        overflow: 'auto',
-        flexDirection: 'column',
-    },
-    fixedHeight: {
-        height: 350,
-    },
-    avatar: {
-        height: '10vh',
-        width: '10vh',
-        border: "20px",
-        borderColor: "black",
-    },
-    localavatar: {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
 
-    },
-    topMenuSelect: {
-        backgroundImage: "url('https://image.freepik.com/vetores-gratis/fundo-azul-triangulo-com-cores-vivas_23-2148400226.jpg')",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-
-    }, name: {
-        display: "flex",
-        textAlign: "center",
-        border: " gray 5px",
-        marginLeft: "25px"
-    },
-    text: {
-        fontFamily: '"lucida sans unicode", "lucida grande", sans-serif',
-        fontsize: '12px',
-        fontweight: 'bold',
-        fontstyle: 'italic',
-        fontvariant: 'small-caps',
-        letterspacing: '2.8pt',
-        wordspacing: '8.2pt',
-        lineheight: '1.7',
-    }
-}));
 
 
 
@@ -252,7 +132,7 @@ export default function Perfil() {
 
                     <Link href="perfil">
                         <div className={classes.localavatar}>
-                        <Avatar className={classes.avatar} alt="Loli Dançante" src="https://media.tenor.com/images/74a2b4b0fc38bc87c81f68b0bb24572d/tenor.gif" />
+                            <Avatar className={classes.avatar} alt="Loli Dançante" src="https://media.tenor.com/images/74a2b4b0fc38bc87c81f68b0bb24572d/tenor.gif" />
                         </div>
                     </Link>
 
@@ -320,15 +200,22 @@ export default function Perfil() {
             <div className={classes.appBarSpacer} />
             <Container maxWidth="lg" className={classes.container}>
                 <Grid container
-                    direction="row"
+                    direction="column"
                     justify="center"
                     alignItems="flex"
                     spacing={2}
                 >
                     <TopAvatar></TopAvatar>
-                    <Divider style={{margin:"40px"}}/>
+                    <Divider style={{ margin: "40px" }} />
+                    <Paper style={{ padding: '20px' }}>
+                        <Box> Seu HANK : #20</Box>
+                    </Paper>
+
+                    <Divider style={{ margin: "40px" }} />
+                    <Dados />
+                    <Divider style={{ margin: "40px" }} />
                     <Orders></Orders>
-                    <Divider style={{margin:"40px"}}/>
+
                     {/* <Deposits></Deposits> */}
                     {/* <Grid item xs={7} md={3} lg={9} >
                         <Paper className={fixedHeightPaper} >

@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  useHistory
 } from "react-router-dom";
 import clsx from 'clsx';
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
-import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
 import Box from '@material-ui/core/Box';
@@ -39,8 +39,8 @@ import OutlinedInput from '@material-ui/core/OutlinedInput'
 import Card from './dashboard/Card.js';
 import Genero from './dashboard/Genero.js'
 import Conquista from './Conquista';
-import Perfil from './Perfil.js';
 import Livro from './Livro.js';
+import useStyles from "./dashboard/stylescustom.js"
 
 // import Chart from './Chart';
 // import Deposits from './Deposits';
@@ -59,156 +59,28 @@ function Copyright() {
   );
 }
 
-const drawerWidth = 240;
 
-const useStyles = makeStyles((theme) => ({
-  root: { display: 'flex', },
-  toolbar: {
-    paddingRight: 25, // keep right padding when drawer close
-  }, toolbarIcon: {
-    display: 'flex', alignItems: 'center',
-    justifyContent: 'flex-end',
-    padding: '0 8px',
-    // ...theme.mixins.toolbar,
-  },
-  appBar:
-  {
-    zIndex: theme.zIndex.drawer + 1,
-    transition: theme.transitions.create(['width', 'margin'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-  },
-  appBarShift:
-  {
-    marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(['width', 'margin'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
-  menuButton:
-  {
-    marginRight: 36,
-  },
-  menuButtonHidden:
-  {
-    display: 'none',
-  },
-  title:
-  {
-    flexGrow: 1,
-  },
-  drawerPaper:
-  {
-    position: 'relative',
-    whiteSpace: 'nowrap',
-    width: drawerWidth,
-    transition: theme.transitions.create('width', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
-  drawerPaperClose:
-  {
-    overflowX: 'hidden',
-    transition: theme.transitions.create('width', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    width: theme.spacing(7),
-    [theme.breakpoints.up('sm')]: {
-      width: theme.spacing(9),
-    },
-  },
-  appBarSpacer: theme.mixins.toolbar,
-  content:
-  {
-    flexGrow: 1,
-    height: '100vh',
-    overflow: 'auto',
-    width: '100%',
-    wordWrap: "nowrap",
-  },
-  container:
-  {
-    paddingTop: theme.spacing(4),
-    paddingBottom: theme.spacing(4),
-    color: "black",
-    backgroundImage: "url('https://i.pinimg.com/originals/78/df/8a/78df8a1b2d0f5dc55db7daff161f0f83.jpg')",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-    height: "max-heiht"
 
-  },
-  paper: {
-    padding: theme.spacing(2),
-    display: 'flex',
-    overflow: 'auto',
-    flexDirection: 'column',
-  },
-  fixedHeight: {
-    height: 350,
-  },
-  avatar: {
-    height: '10vh',
-    width: '10vh',
-    border: "20px",
-    borderColor: "black",
-  },
-  localavatar: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-
-  },
-  topMenuSelect: {
-    backgroundImage: "url('https://image.freepik.com/vetores-gratis/fundo-azul-triangulo-com-cores-vivas_23-2148400226.jpg')",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-
-  }, name: {
-    display: "flex",
-    textAlign: "center",
-    border: " gray 5px",
-    marginLeft: "25px"
-  },
-  text: {
-    fontFamily: '"lucida sans unicode", "lucida grande", sans-serif',
-    fontsize: '12px',
-    fontweight: 'bold',
-    fontstyle: 'italic',
-    fontvariant: 'small-caps',
-    letterspacing: '2.8pt',
-    wordspacing: '8.2pt',
-    lineheight: '1.7',
-  }
-}));
 
 
 export default function Dashboard(props) {
-  // const separaUrl = () => {
-  //   try {
-  //     var a = window.location.href.split('/dashboard/');
-  //     a = a[1].split('/');
-  //     var nm = a[1].replace(/(%20)+/g, ' ');
 
-
-  //     return { email: a[0], name: nm, id: a[2] }
-  //   } catch (error) {
-  //     return { email: 'null', name: 'null', id: 'null' }
-  //   }
-
-  // }
   const classes = useStyles();
-  // const [data, setState] = useState(separaUrl);
 
 
 
+  const [livro, livros] = useState([]);
+  const [input, inputs] = useState('');
 
-
+  React.useEffect(() => {
+    async function request() {
+      const response = await fetch(`https://back-airtoon.herokuapp.com/books`);
+      const json = await response.json();
+      livros(json);
+    }
+    request();
+  });
+  
   const [open, setOpen] = React.useState(false);
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -219,27 +91,16 @@ export default function Dashboard(props) {
   };
 
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-
-
+  const history = useHistory();
+// redirecionamento
   const click = (e) => {
-    window.location.href = window.location.href.replace('popular','livro')+"/"+e.target.alt
+    let path = `livro#${e.target.alt}`;
+    history.push(path);
   }
-
-  const elements = ["https://images-americanas.b2w.io/produtos/01/00/sku/35580/5/35580598_1GG.jpg", "https://a-static.mlcdn.com.br/618x463/livro-amigos/livrariamartinsfontespaulista/21009/ef344cdd25e1edcc64c2f29ca48502d9.jpg", "https://images-na.ssl-images-amazon.com/images/I/71ZLavBjpRL.jpg", "https://m.media-amazon.com/images/I/51KIUhkcuhL.jpg", "https://kbimages1-a.akamaihd.net/0586fdeb-c8eb-460d-9fb5-ffe2c36fb749/1200/1200/False/meu-primeiro-caozinho-livro-infantil-6-7-anos-timba-chega-a-casa.jpg"]
-  const itens = []
-
-  for (const [index, value] of elements.entries()) {
-    itens.push(<Grid item xs={7} md={3} lg={9} >
-      <Paper className={fixedHeightPaper} onClick={click}>
-        <Card name="meu livro" alt="123" image={value} autor="eu" genero="eudnv" link="http://cabana-on.com/Ler/wp-content/uploads/2017/08/J.R.R.-Tolkien-A-Sociedade-do-Anel-%E2%80%93-O-Senhor-dos-An%C3%A9is-%E2%80%93-Vol-1.pdf" tags={["teste", "teste1"]} />
-      </Paper>
-    </Grid>
-    )
-  }
-
 
   return (
     <div className={classes.root} >
+      {/* Topo da pagina */}
       <CssBaseline />
       <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)} style={{ backgroundColor: "white" }}>
         <Toolbar className={classes.toolbar}>
@@ -258,7 +119,6 @@ export default function Dashboard(props) {
             <FormControl fullWidth variant="outlined">
               <OutlinedInput
                 id="outlined-adornment-amount"
-                // value={values.amount}
                 // onChange={handleChange('amount')}
                 startAdornment={<InputAdornment position="start"> <strong>Pesquisa:</strong>  </InputAdornment>}
                 labelWidth={60}
@@ -289,7 +149,7 @@ export default function Dashboard(props) {
                 <ChevronLeftIcon color="action" />
               </IconButton>
             </div>
-
+        {/* Lateral da pagina */}
           </div>
 
           <Link href="perfil">
@@ -303,15 +163,15 @@ export default function Dashboard(props) {
         <Divider />
         <List>
           <div>
-            <Link color="inherit" href="popular">
+            <Link color="inherit" href="/mega-hack-3/dashboard/populares">
               <ListItem button>
                 <ListItemIcon>
                   <ImportContactsIcon />
                 </ListItemIcon>
-                <ListItemText primary="Populares" />
+                <ListItemText primary= "Popular"/>
               </ListItem>
             </Link>
-            <Link color="inherit" href="formato">
+            <Link color="inherit" href="/mega-hack-3/dashboard/formato">
               <ListItem button>
                 <ListItemIcon>
                   <LibraryBooksIcon />
@@ -319,7 +179,7 @@ export default function Dashboard(props) {
                 <ListItemText primary="Formatos" />
               </ListItem>
             </Link>
-            <Link color="inherit" href="conquista">
+            <Link color="inherit" href="/mega-hack-3/dashboard/conquista">
               <ListItem button>
                 <ListItemIcon>
                   <EmojiObjectsIcon />
@@ -362,7 +222,7 @@ export default function Dashboard(props) {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
 
-        {/* Onde a gente coloca cards etc */}
+        {/* Routes para cada opção do dashboard*/}
 
         <Container maxWidth="lg" className={classes.container}>
 
@@ -378,7 +238,12 @@ export default function Dashboard(props) {
                 alignItems="baseline"
                 spacing={2}
               >
-                {itens}
+                {livro.map((elem) => (<Grid item xs={7} md={3} lg={9} >
+                  <Paper className={fixedHeightPaper} onClick={click} >
+                    <Card name={elem.nome} alt={elem.id} image={elem.image} autor={elem.autor} tipo={elem.tipo} nota={elem.nota} link={elem.compra} tags={elem.tags} />
+                  </Paper>
+                </Grid>
+                ))}
               </Grid>
             </Route>
 
@@ -388,31 +253,25 @@ export default function Dashboard(props) {
               <Genero />
             </Route>
 
-
             <Route path="/mega-hack-3/dashboard/conquista">
               <Conquista />
-            </Route>
-
-
-            <Route path="/mega-hack-3/dashboard/livro/(:id)">
-              <Livro />
             </Route>
 
             <Route path="/mega-hack-3/dashboard/livro">
               <Livro />
             </Route>
+            
 
             <Route path="/mega-hack-3/dashboard/config">
               <h1>/config</h1>
             </Route>
-
 
             <Route path="/mega-hack-3/dashboard/ajuda">
               <h1>/Ajuda</h1>
             </Route>
 
             <Route path="/mega-hack-3/dashboard">
-              <h2 className={classes.text} style={{ display: "flex", }}>Livro Animado</h2>
+              <h2 className={classes.text} style={{ display: "flex", }}>Populares</h2>
               <Divider style={{ marginBottom: "10px" }} />
               <Grid container
                 direction="row"
@@ -420,30 +279,16 @@ export default function Dashboard(props) {
                 alignItems="baseline"
                 spacing={2}
               >
-                <div onClick={click}>
-                  {itens}
-                </div>
-
-
+                {livro.map((elem) => (<Grid item xs={7} md={3} lg={9} >
+                  <Paper className={fixedHeightPaper} onClick={click} id="teste1">
+                    <Card name={elem.nome} alt={elem.id} image={elem.image} autor={elem.autor} tipo={elem.tipo} nota={elem.nota} link={elem.compra} tags={elem.tags} />
+                  </Paper>
+                </Grid>
+                ))}
               </Grid>
             </Route>
           </Switch>
-
-
-          {/* <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <Deposits />
-              </Paper>
-            </Grid>
-            
-            <Grid item xs={12}>
-              <Paper className={classes.paper}>
-                <Orders />
-              </Paper>
-            </Grid> */}
-
-
-          <Box pt={4}>
+          <Box pt={4} style={{bottom:0}}>
             <Copyright />
           </Box>
         </Container>
