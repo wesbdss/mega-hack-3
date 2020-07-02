@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e3a01cd3d651fb3e022fc701cbe6176e",
+    "revision": "994d03bfba0825f05e309c2f1365db98",
     "url": "/mega-hack-3/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mega-hack-3/static/css/2.af3c1da9.chunk.css"
   },
   {
-    "revision": "3c253e2f3910ccf71af0",
+    "revision": "9c453fa821246e4e5faf",
     "url": "/mega-hack-3/static/css/main.8e1d4599.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mega-hack-3/static/js/2.92bcca81.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "3c253e2f3910ccf71af0",
-    "url": "/mega-hack-3/static/js/main.678a3459.chunk.js"
+    "revision": "9c453fa821246e4e5faf",
+    "url": "/mega-hack-3/static/js/main.bad287b8.chunk.js"
   },
   {
     "revision": "c17380bcb49eb1d8979d",
