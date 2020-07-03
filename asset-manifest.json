@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/mega-hack-3/static/css/main.8e1d4599.chunk.css",
-    "main.js": "/mega-hack-3/static/js/main.99ec1a20.chunk.js",
-    "main.js.map": "/mega-hack-3/static/js/main.99ec1a20.chunk.js.map",
+    "main.js": "/mega-hack-3/static/js/main.f40c0704.chunk.js",
+    "main.js.map": "/mega-hack-3/static/js/main.f40c0704.chunk.js.map",
     "runtime-main.js": "/mega-hack-3/static/js/runtime-main.3b672b39.js",
     "runtime-main.js.map": "/mega-hack-3/static/js/runtime-main.3b672b39.js.map",
     "static/css/2.af3c1da9.chunk.css": "/mega-hack-3/static/css/2.af3c1da9.chunk.css",
-    "static/js/2.4bc81707.chunk.js": "/mega-hack-3/static/js/2.4bc81707.chunk.js",
-    "static/js/2.4bc81707.chunk.js.map": "/mega-hack-3/static/js/2.4bc81707.chunk.js.map",
+    "static/js/2.0fc41265.chunk.js": "/mega-hack-3/static/js/2.0fc41265.chunk.js",
+    "static/js/2.0fc41265.chunk.js.map": "/mega-hack-3/static/js/2.0fc41265.chunk.js.map",
     "index.html": "/mega-hack-3/index.html",
-    "precache-manifest.d9ba499eb87cfe8f1d0058f616de24dc.js": "/mega-hack-3/precache-manifest.d9ba499eb87cfe8f1d0058f616de24dc.js",
+    "precache-manifest.f2e8dabcfa4ee1747177c0e01b1a68c8.js": "/mega-hack-3/precache-manifest.f2e8dabcfa4ee1747177c0e01b1a68c8.js",
     "service-worker.js": "/mega-hack-3/service-worker.js",
     "static/css/2.af3c1da9.chunk.css.map": "/mega-hack-3/static/css/2.af3c1da9.chunk.css.map",
     "static/css/main.8e1d4599.chunk.css.map": "/mega-hack-3/static/css/main.8e1d4599.chunk.css.map",
-    "static/js/2.4bc81707.chunk.js.LICENSE.txt": "/mega-hack-3/static/js/2.4bc81707.chunk.js.LICENSE.txt"
+    "static/js/2.0fc41265.chunk.js.LICENSE.txt": "/mega-hack-3/static/js/2.0fc41265.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.3b672b39.js",
     "static/css/2.af3c1da9.chunk.css",
-    "static/js/2.4bc81707.chunk.js",
+    "static/js/2.0fc41265.chunk.js",
     "static/css/main.8e1d4599.chunk.css",
-    "static/js/main.99ec1a20.chunk.js"
+    "static/js/main.f40c0704.chunk.js"
   ]
 }
