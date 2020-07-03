@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import {
     BrowserRouter as Router,
     Switch,
-    Route
+    Route,
+    Link
 } from "react-router-dom";
 import clsx from 'clsx';
 import Grid from '@material-ui/core/Grid'
@@ -19,7 +20,6 @@ import IconButton from '@material-ui/core/IconButton';
 import Badge from '@material-ui/core/Badge';
 import Container from '@material-ui/core/Container';
 import Avatar from '@material-ui/core/Avatar';
-import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
@@ -36,25 +36,6 @@ import TopAvatar from "./perfil/Topavatar";
 import Orders from './perfil/Orders';
 import useStyles from "./dashboard/stylescustom"
 import Dados from './perfil/Dados';
-
-function Copyright() {
-    return (
-        <Typography variant="body2" color="textSecondary" align="center">
-            {' © '}
-            <Link color="inherit" href="https://material-ui.com/">
-                NeoGuará
-      </Link>{' '}
-            {new Date().getFullYear()}
-            {'.'}
-        </Typography>
-    );
-}
-
-
-
-
-
-
 
 
 export default function Perfil() {
@@ -127,7 +108,7 @@ export default function Perfil() {
 
                     </div>
 
-                    <Link href="perfil">
+                    <Link to="perfil">
                         <div className={classes.localavatar}>
                             <Avatar className={classes.avatar} alt="Loli Dançante" src="https://media.tenor.com/images/74a2b4b0fc38bc87c81f68b0bb24572d/tenor.gif" />
                         </div>
@@ -138,7 +119,7 @@ export default function Perfil() {
                 <Divider />
                 <List>
                     <div>
-                        <Link color="inherit" href="/mega-hack-3/dashboard/popular">
+                        <Link color="inherit" to="/mega-hack-3/dashboard/popular">
                             <ListItem button>
                                 <ListItemIcon>
                                     <ImportContactsIcon />
@@ -146,7 +127,7 @@ export default function Perfil() {
                                 <ListItemText primary="Populares" />
                             </ListItem>
                         </Link>
-                        <Link color="inherit" href="/mega-hack-3/dashboard/formatos">
+                        <Link color="inherit" to="/mega-hack-3/dashboard/formatos">
                             <ListItem button>
                                 <ListItemIcon>
                                     <LibraryBooksIcon />
@@ -154,7 +135,7 @@ export default function Perfil() {
                                 <ListItemText primary="Formatos" />
                             </ListItem>
                         </Link>
-                        <Link color="inherit" href="/mega-hack-3/dashboard/conquistas">
+                        <Link color="inherit" to="/mega-hack-3/dashboard/conquistas">
                             <ListItem button>
                                 <ListItemIcon>
                                     <EmojiObjectsIcon />
@@ -167,23 +148,23 @@ export default function Perfil() {
                 <Divider />
                 <List>
                     <div>
-                        <Link color="inherit" href="">
-                            <ListItem button>
-                                <ListItemIcon>
-                                    <AccountCircleIcon />
-                                </ListItemIcon>
-                                <ListItemText primary="Configurações" />
-                            </ListItem>
-                        </Link>
-                        <Link color="inherit" href="">
-                            <ListItem button>
-                                <ListItemIcon>
-                                    <HelpOutlineIcon />
-                                </ListItemIcon>
-                                <ListItemText primary="Ajuda" />
-                            </ListItem>
-                        </Link>
-                        <Link color="inherit" href="/mega-hack-3/login">
+
+                        <ListItem button>
+                            <ListItemIcon>
+                                <AccountCircleIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Configurações" />
+                        </ListItem>
+
+
+                        <ListItem button>
+                            <ListItemIcon>
+                                <HelpOutlineIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Ajuda" />
+                        </ListItem>
+
+                        <Link color="inherit" to="/mega-hack-3/login">
                             <ListItem button>
                                 <ListItemIcon>
                                     <ExitToAppIcon />

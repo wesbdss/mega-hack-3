@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  useHistory
+  useHistory, Link
 } from "react-router-dom";
 import clsx from 'clsx';
 import Grid from '@material-ui/core/Grid'
@@ -20,7 +20,6 @@ import IconButton from '@material-ui/core/IconButton';
 import Badge from '@material-ui/core/Badge';
 import Container from '@material-ui/core/Container';
 import Avatar from '@material-ui/core/Avatar';
-import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
@@ -41,13 +40,15 @@ import Genero from './dashboard/Genero.js'
 import Conquista from './Conquista';
 import Livro from './Livro.js';
 import useStyles from "./dashboard/stylescustom.js"
+import Perfil from './Perfil';
+
 
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {' © '}
-      <Link color="inherit" href="https://material-ui.com/">
+      <Link color="inherit" to="/mega-hack-3/">
         NeoGuará
       </Link>{' '}
       {new Date().getFullYear()}
@@ -73,7 +74,7 @@ export default function Dashboard(props) {
     }
     request();
   });
-  
+
   const [open, setOpen] = React.useState(false);
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -85,11 +86,12 @@ export default function Dashboard(props) {
 
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
   const history = useHistory();
-// redirecionamento
+  // redirecionamento
   const click = (e) => {
     let path = `livro#${e.target.alt}`;
     history.push(path);
   }
+ 
 
   return (
     <div className={classes.root} >
@@ -141,10 +143,10 @@ export default function Dashboard(props) {
                 <ChevronLeftIcon color="action" />
               </IconButton>
             </div>
-        {/* Lateral da pagina */}
+            {/* Lateral da pagina */}
           </div>
 
-          <Link href="/mega-hack-3/perfil">
+          <Link to="/mega-hack-3/perfil">
             <div className={classes.localavatar}>
               <Avatar className={classes.avatar} alt="Loli Dançante" src="https://media.tenor.com/images/74a2b4b0fc38bc87c81f68b0bb24572d/tenor.gif" />
             </div>
@@ -155,15 +157,15 @@ export default function Dashboard(props) {
         <Divider />
         <List>
           <div>
-            <Link color="inherit" href="/mega-hack-3/dashboard/populares">
+            <Link color="inherit" to="/mega-hack-3/dashboard/populares">
               <ListItem button>
                 <ListItemIcon>
                   <ImportContactsIcon />
                 </ListItemIcon>
-                <ListItemText primary= "Popular"/>
+                <ListItemText primary="Popular" />
               </ListItem>
             </Link>
-            <Link color="inherit" href="/mega-hack-3/dashboard/formato">
+            <Link color="inherit" to="/mega-hack-3/dashboard/formato">
               <ListItem button>
                 <ListItemIcon>
                   <LibraryBooksIcon />
@@ -171,7 +173,7 @@ export default function Dashboard(props) {
                 <ListItemText primary="Formatos" />
               </ListItem>
             </Link>
-            <Link color="inherit" href="/mega-hack-3/dashboard/conquista">
+            <Link color="inherit" to="/mega-hack-3/dashboard/conquista">
               <ListItem button>
                 <ListItemIcon>
                   <EmojiObjectsIcon />
@@ -185,23 +187,22 @@ export default function Dashboard(props) {
         <Divider />
         <List>
           <div>
-            <Link color="inherit" href="">
-              <ListItem button>
-                <ListItemIcon>
-                  <AccountCircleIcon />
-                </ListItemIcon>
-                <ListItemText primary="Configurações" />
-              </ListItem>
-            </Link>
-            <Link color="inherit" href="">
-              <ListItem button>
-                <ListItemIcon>
-                  <HelpOutlineIcon />
-                </ListItemIcon>
-                <ListItemText primary="Ajuda" />
-              </ListItem>
-            </Link>
-            <Link color="inherit" href="/mega-hack-3/login">
+
+            <ListItem button>
+              <ListItemIcon>
+                <AccountCircleIcon />
+              </ListItemIcon>
+              <ListItemText primary="Configurações" />
+            </ListItem>
+
+            <ListItem button>
+              <ListItemIcon>
+                <HelpOutlineIcon />
+              </ListItemIcon>
+              <ListItemText primary="Ajuda" />
+            </ListItem>
+
+            <Link color="inherit" to="/mega-hack-3/login">
               <ListItem button>
                 <ListItemIcon>
                   <ExitToAppIcon />
@@ -231,11 +232,11 @@ export default function Dashboard(props) {
                 spacing={2}
               >
                 {livro.map((elem) => (
-                <Grid item xs={7} md={3} lg={9} >
-                  <Paper className={fixedHeightPaper} onClick={click} >
-                    <Card name={elem.nome} alt={elem.id} image={elem.image} autor={elem.autor} tipo={elem.tipo} nota={elem.nota} link={elem.compra} tags={elem.tags} />
-                  </Paper>
-                </Grid>
+                  <Grid item xs={7} md={3} lg={9} >
+                    <Paper className={fixedHeightPaper} onClick={click} >
+                      <Card name={elem.nome} alt={elem.id} image={elem.image} autor={elem.autor} tipo={elem.tipo} nota={elem.nota} link={elem.compra} tags={elem.tags} />
+                    </Paper>
+                  </Grid>
                 ))}
               </Grid>
             </Route>
@@ -249,11 +250,14 @@ export default function Dashboard(props) {
             <Route exact path="/mega-hack-3/dashboard/conquista">
               <Conquista />
             </Route>
+            <Route exact path="/mega-hack-3/perfil/">
+                <Perfil />
+              </Route>
 
             <Route exact path="/mega-hack-3/dashboard/livro">
               <Livro />
             </Route>
-          
+
             <Route exact path="/mega-hack-3/dashboard/config">
               <h1>/config</h1>
             </Route>
@@ -280,7 +284,7 @@ export default function Dashboard(props) {
               </Grid>
             </Route>
           </Switch>
-          <Box pt={4} style={{bottom:0}}>
+          <Box pt={4} style={{ bottom: 0 }}>
             <Copyright />
           </Box>
         </Container>

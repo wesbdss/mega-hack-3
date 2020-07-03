@@ -4,7 +4,6 @@ import Login from './routes/Login.js';
 import Homepage from './routes/Homepage.js';
 import Erro from './routes/Erro.js';
 import Dashboard from './routes/Dashboard.js';
-import Perfil from './routes/Perfil';
 import Online from './routes/Online.js';
 
 
@@ -27,17 +26,13 @@ export default class App extends React.Component {
               <Route exact path='/'>
                 <Homepage />
               </Route>
-
               <Route exact path="/mega-hack-3/dashboard/online/">
                 <Online />
               </Route>
-              <Route path='/mega-hack-3/dashboard/'>
+              <Route exact path='/mega-hack-3/dashboard/'>
                 <Dashboard />
               </Route>
-
-              <Route exact path="/mega-hack-3/perfil/">
-                <Perfil />
-              </Route>
+              
               <Route exact path="/mega-hack-3/login/">
                 <Login />
               </Route>
