@@ -42,9 +42,6 @@ import Conquista from './Conquista';
 import Livro from './Livro.js';
 import useStyles from "./dashboard/stylescustom.js"
 
-// import Chart from './Chart';
-// import Deposits from './Deposits';
-// import Orders from './Orders';
 
 function Copyright() {
   return (
@@ -61,16 +58,12 @@ function Copyright() {
 
 
 
-
-
 export default function Dashboard(props) {
-
   const classes = useStyles();
 
 
 
   const [livro, livros] = useState([]);
-  const [input, inputs] = useState('');
 
   React.useEffect(() => {
     async function request() {
@@ -119,7 +112,6 @@ export default function Dashboard(props) {
             <FormControl fullWidth variant="outlined">
               <OutlinedInput
                 id="outlined-adornment-amount"
-                // onChange={handleChange('amount')}
                 startAdornment={<InputAdornment position="start"> <strong>Pesquisa:</strong>  </InputAdornment>}
                 labelWidth={60}
               />
@@ -228,7 +220,7 @@ export default function Dashboard(props) {
 
 
           <Switch>
-            <Route path="/mega-hack-3/dashboard/popular">
+            <Route exact path="/mega-hack-3/dashboard/populares">
 
               <h2 className={classes.text} style={{ display: "flex" }}>Populares</h2>
               <Divider style={{ marginBottom: "20px" }} />
@@ -238,7 +230,8 @@ export default function Dashboard(props) {
                 alignItems="baseline"
                 spacing={2}
               >
-                {livro.map((elem) => (<Grid item xs={7} md={3} lg={9} >
+                {livro.map((elem) => (
+                <Grid item xs={7} md={3} lg={9} >
                   <Paper className={fixedHeightPaper} onClick={click} >
                     <Card name={elem.nome} alt={elem.id} image={elem.image} autor={elem.autor} tipo={elem.tipo} nota={elem.nota} link={elem.compra} tags={elem.tags} />
                   </Paper>
@@ -248,25 +241,24 @@ export default function Dashboard(props) {
             </Route>
 
 
-            <Route path="/mega-hack-3/dashboard/formato">
+            <Route exact path="/mega-hack-3/dashboard/formato">
               <h1>Formatos</h1>
               <Genero />
             </Route>
 
-            <Route path="/mega-hack-3/dashboard/conquista">
+            <Route exact path="/mega-hack-3/dashboard/conquista">
               <Conquista />
             </Route>
 
-            <Route path="/mega-hack-3/dashboard/livro">
+            <Route exact path="/mega-hack-3/dashboard/livro">
               <Livro />
             </Route>
-            
-
-            <Route path="/mega-hack-3/dashboard/config">
+          
+            <Route exact path="/mega-hack-3/dashboard/config">
               <h1>/config</h1>
             </Route>
 
-            <Route path="/mega-hack-3/dashboard/ajuda">
+            <Route exact path="/mega-hack-3/dashboard/ajuda">
               <h1>/Ajuda</h1>
             </Route>
 

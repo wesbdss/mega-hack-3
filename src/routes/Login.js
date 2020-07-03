@@ -50,7 +50,6 @@ export default class Login extends Component {
         //             alert("Senha ou Email Incorreto");
         //         }
         //     });
-        window.location.href = window.location.href.replace('/login', '/dashboard') + "/"
         e.preventDefault();
     }
 
@@ -79,8 +78,9 @@ export default class Login extends Component {
                                 <Form.Label>Senha</Form.Label>
                                 <Form.Control type="password" value={this.state.password} placeholder="Password" onChange={this.handleChange1} />
                             </Form.Group>
-                            <Button variant="dark" type="submit">
-                                Logar</Button>
+                            <Link to="/mega-hack-3/dashboard/"><Button variant="dark">
+                                Logar</Button></Link>
+                            
                             <Link to="/mega-hack-3/anima">Pass Rapido</Link>
                         </Form>
                     </Alert>

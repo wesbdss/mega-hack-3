@@ -21,35 +21,35 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <Router>
+      <Router baseline="/mega-hack-3/">
         <div className="App">
           <header className="App-header">
             <Switch>
-              <Route path="/mega-hack-3/dashboard/ajuda">
-                <Dashboard />
-              </Route>
-              <Route path="/mega-hack-3/dashboard/online">
-                <Online />
-              </Route>
-              <Route path="/mega-hack-3/perfil">
-                <Perfil />
-              </Route>
-              <Route path="/mega-hack-3/login">
-                <Login />
-              </Route>
-              <Route path='/mega-hack-3/dashboard'>
-                <Dashboard />
-              </Route>
-              <Route path="/mega-hack-3/anima">
-                <Animation />
-              </Route>
-              <Route path="/mega-hack-3/">
+              <Route exact path='/'>
                 <Homepage />
               </Route>
-              <Route path='/'>
-                <Erro />
+
+              <Route exact path="/mega-hack-3/dashboard/online/">
+                <Online />
+              </Route>
+              <Route path='/mega-hack-3/dashboard/'>
+                <Dashboard />
               </Route>
 
+              <Route exact path="/mega-hack-3/perfil/">
+                <Perfil />
+              </Route>
+              <Route exact path="/mega-hack-3/login/">
+                <Login />
+              </Route>
+              <Route exact path="/mega-hack-3/anima/">
+                <Animation />
+              </Route>
+              <Route exact path="/mega-hack-3/">
+                <Homepage />
+              </Route>
+
+              <Route path='*' component={Erro} />
 
             </Switch>
           </header>

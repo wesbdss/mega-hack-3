@@ -8,7 +8,6 @@ import clsx from 'clsx';
 import Grid from '@material-ui/core/Grid'
 import Box from '@material-ui/core/Box'
 import Paper from '@material-ui/core/Paper'
-import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
@@ -34,8 +33,6 @@ import EmojiObjectsIcon from '@material-ui/icons/EmojiObjects';
 import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 import ImportContactsIcon from '@material-ui/icons/ImportContacts';
 import TopAvatar from "./perfil/Topavatar";
-import Charts from './perfil/Chart';
-import Deposits from './perfil/Deposits';
 import Orders from './perfil/Orders';
 import useStyles from "./dashboard/stylescustom"
 import Dados from './perfil/Dados';
